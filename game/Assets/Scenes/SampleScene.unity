@@ -3553,7 +3553,11 @@ Transform:
   m_GameObject: {fileID: 1362040662}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+<<<<<<< Updated upstream
   m_LocalPosition: {x: 3.3, y: 4.1, z: 0}
+=======
+  m_LocalPosition: {x: 29, y: -11, z: 0}
+>>>>>>> Stashed changes
   m_LocalScale: {x: 10, y: 10, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4345,6 +4349,7 @@ GameObject:
   - component: {fileID: 2055313394}
   - component: {fileID: 2055313396}
   - component: {fileID: 2055313395}
+  - component: {fileID: 2055313397}
   m_Layer: 5
   m_Name: Counter
 =======
@@ -4621,6 +4626,7 @@ CircleCollider2D:
 <<<<<<< HEAD
   m_GameObject: {fileID: 2055313393}
   m_CullTransparentMesh: 1
+<<<<<<< Updated upstream
 =======
   m_GameObject: {fileID: 1519272360}
   m_Enabled: 1
@@ -4868,11 +4874,15 @@ GameObject:
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!114 &1585055231
+=======
+--- !u!114 &2055313397
+>>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< Updated upstream
   m_GameObject: {fileID: 1585055230}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -6167,6 +6177,16 @@ Transform:
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 >>>>>>> ZachPill
+=======
+  m_GameObject: {fileID: 2055313393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b12aacb1dad3d93468f19b45738ff8e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManager: {fileID: 296730067}
+  text: {fileID: 2055313395}
+>>>>>>> Stashed changes
 --- !u!1 &2055645379
 GameObject:
   m_ObjectHideFlags: 0
