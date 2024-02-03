@@ -4,7 +4,13 @@ using UnityEngine;
 
 public class Sand : MonoBehaviour
 {
-    public GameManager GameManager;
+    GameManager GameManager;
+
+    private void Start()
+    {
+        GameManager = GameObject.FindObjectOfType<GameManager>();
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag == "Player")

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     float vertical;
 
     public float runSpeed = 20.0f;
+    public float rotationSpeed = 180.0f;
 
     void Start()
     {
@@ -20,6 +22,21 @@ public class PlayerMovement : MonoBehaviour
     {
         horizontal = Input.GetAxisRaw("Horizontal");
         vertical = Input.GetAxisRaw("Vertical");
+
+        // Graphics direction
+        // Determine which direction to rotate towards
+        Vector2 targetDirection = new Vector3 (horizontal, vertical);
+        float inputMagnitude = Mathf.Clamp01(targetDirection.magnitude);
+        targetDirection.Normalize();
+
+        //transform.Translate(targetDirection * runSpeed * inputMagnitude * Time.deltaTime, Space.World);
+
+        if (targetDirection != Vector2.zero )
+        {
+            Quaternion toRotation = Quaternion.LookRotation(Vector3.forward, targetDirection);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
+        }
+
     }
 
     void FixedUpdate()
