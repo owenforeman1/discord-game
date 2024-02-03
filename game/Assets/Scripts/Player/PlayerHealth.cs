@@ -1,21 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
     
     public int health;
+    public ProtectionPrayer ProtectionPrayer;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+    public void GetHit(DamageType ProjectileType)
     {
-        
+        if (ProjectileType != ProtectionPrayer.Prayer)
+        {
+            // Was hit off prayer
+            // Reload Scence For now
+            string currentSceneName = SceneManager.GetActiveScene().name;
+            SceneManager.LoadScene(currentSceneName);
+        }
     }
 }

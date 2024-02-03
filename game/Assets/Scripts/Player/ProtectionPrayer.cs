@@ -2,15 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum DamageType
+{
+    None,
+    Lazer,
+    Bullet,
+    Spike
+}
+
 public class ProtectionPrayer : MonoBehaviour
 {
-    public enum Protection
-    {
-        None,
-        Lazer,
-        Bullet,
-        Spike
-    }
+ 
 
     // Start is called before the first frame update
     [SerializeField]
@@ -20,7 +22,7 @@ public class ProtectionPrayer : MonoBehaviour
     [SerializeField]
     private GameObject ProtectFromSpike;
 
-    public Protection Prayer = Protection.None;
+    public DamageType Prayer = DamageType.None;
 
     void Start()
     {
@@ -38,21 +40,21 @@ public class ProtectionPrayer : MonoBehaviour
     {
         if (Input.GetKey("1"))
         {
-            Prayer = Protection.Lazer;
+            Prayer = DamageType.Lazer;
             return;
         }
         else if (Input.GetKey("2"))
         {
-            Prayer = Protection.Bullet;
+            Prayer = DamageType.Bullet;
             return;
         }
         else if (Input.GetKey("3"))
         {
-            Prayer = Protection.Spike;
+            Prayer = DamageType.Spike;
             return;
         }
 
-        Prayer = Protection.None;
+        Prayer = DamageType.None;
     }
 
     private void DisplayPrayer()
@@ -63,15 +65,15 @@ public class ProtectionPrayer : MonoBehaviour
 
         switch (Prayer)
         {
-            case Protection.Lazer:
+            case DamageType.Lazer:
                 ProtectFromLazer.SetActive(true);
                 break;
 
-            case Protection.Bullet:
+            case DamageType.Bullet:
                 ProtectFromBullet.SetActive(true);
                 break;
 
-            case Protection.Spike:
+            case DamageType.Spike:
                 ProtectFromSpike.SetActive(true);
                 break;
         }
