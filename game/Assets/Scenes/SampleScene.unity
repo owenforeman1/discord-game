@@ -5424,6 +5424,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1868990231}
   - component: {fileID: 1868990232}
+  - component: {fileID: 1868990233}
   m_Layer: 0
   m_Name: Graphics
   m_TagString: Untagged
@@ -5468,6 +5469,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1868990233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1868990230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea288d9e75984d5469e728ace29eb938, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 1891018610}
+  DefaultFacing: 0
 --- !u!1 &1891018608
 GameObject:
   m_ObjectHideFlags: 0
@@ -6569,10 +6584,10 @@ SceneRoots:
   m_Roots:
   - {fileID: 519420032}
   - {fileID: 1362040664}
+  - {fileID: 833501242}
   - {fileID: 1654552848}
   - {fileID: 592391653}
   - {fileID: 1247537367}
   - {fileID: 4563101972796544243}
   - {fileID: 474068633}
-  - {fileID: 833501242}
   - {fileID: 1795173548}
