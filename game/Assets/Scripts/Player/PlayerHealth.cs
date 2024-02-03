@@ -12,6 +12,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void GetHit(DamageType ProjectileType)
     {
+        
         if (ProjectileType != ProtectionPrayer.Prayer)
         {
             // Was hit off prayer
