@@ -34,7 +34,8 @@ public class PlayerMovement : MonoBehaviour
         if (targetDirection != Vector2.zero )
         {
             Quaternion toRotation = Quaternion.LookRotation(Vector3.forward, targetDirection);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
+            //transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
+            transform.rotation = Quaternion.Slerp(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
         }
 
     }
