@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Unity.VisualScripting;
 
 public class SandCounterUI : MonoBehaviour
 {
@@ -12,7 +13,10 @@ public class SandCounterUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (gameManager == null)
+        {
+            gameManager = GameObject.FindAnyObjectByType<GameManager>();
+        }
     }
 
     // Update is called once per frame
