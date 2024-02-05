@@ -32,6 +32,12 @@ public class Projectile : MonoBehaviour
         // Go to player
         Vector2 MoveDirection = (PlayerTransform.position - transform.position).normalized;
         rb.velocity = speed * MoveDirection;
+
+        // Rotate Direction
+        Quaternion toRotation = Quaternion.LookRotation(Vector3.forward, MoveDirection);
+        //transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
+        transform.rotation = toRotation;
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
