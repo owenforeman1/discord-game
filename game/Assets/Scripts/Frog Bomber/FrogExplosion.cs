@@ -5,7 +5,12 @@ using UnityEngine;
 public class FrogExplosion : MonoBehaviour
 {
     public List<GameObject> Limbs = new List<GameObject>();
-    
+
+    private void Start()
+    {
+        Explode();
+    }
+
     private void Explode()
     {
         foreach (GameObject Limb in Limbs)
@@ -14,7 +19,7 @@ public class FrogExplosion : MonoBehaviour
 
             GameObject newLimb = Instantiate(Limb, transform.position, randomAngle);
 
-            //newLimb.GetComponent<>
+            newLimb.GetComponent<FrogLimb>().GoCrazy();
         }
     }
 }

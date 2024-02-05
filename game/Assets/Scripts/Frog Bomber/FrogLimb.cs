@@ -13,8 +13,10 @@ public class FrogLimb : MonoBehaviour
     public void GoCrazy()
     {
 
-        Vector2 RandomDirection = new Vector2(Random.Range(0f, 1f), Random.Range(0f, 1f)).normalized;
+        Vector2 RandomDirection = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
         rb.velocity = RandomDirection * Random.Range(SpeedRange.x, SpeedRange.y);
+
+        rb.angularVelocity = Random.Range(TorqueRange.x, TorqueRange.y);
     }
 
 }
