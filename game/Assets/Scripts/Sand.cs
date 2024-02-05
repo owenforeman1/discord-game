@@ -17,7 +17,7 @@ public class Sand : MonoBehaviour
         {
 
             GameManager.AddSand();
-            GameObject.FindGameObjectWithTag("SoundEffects").GetComponent<AudioSource>().Play();
+            GameObject.FindAnyObjectByType<SoundManager>().Play("sandcollect");
             Destroy(gameObject);
         }
 

@@ -56,5 +56,8 @@ public class GunMan : MonoBehaviour
         Instantiate(Bullet, GunLocation1.position, Quaternion.identity);
         Instantiate(Bullet, GunLocation2.position, Quaternion.identity);
 
+        // Play Sound
+        GameObject.FindAnyObjectByType<SoundManager>().Play("gunsound");
+
     }
 }

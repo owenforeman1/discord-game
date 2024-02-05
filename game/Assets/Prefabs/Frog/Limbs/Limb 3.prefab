@@ -126,5 +126,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 5216402568509143415}
-  SpeedRange: {x: 15, y: 25}
+  SpeedRange: {x: 15, y: 20}
   TorqueRange: {x: -720, y: 720}
