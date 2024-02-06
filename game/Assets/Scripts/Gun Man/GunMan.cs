@@ -31,6 +31,7 @@ public class GunMan : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        attackCDTimer -= Time.deltaTime;
         // If Player in range
         if (Vector2.Distance(transform.position, playertransform.position) < attackRange)
         {
@@ -41,7 +42,7 @@ public class GunMan : MonoBehaviour
 
     private void AttackCycle()
     {
-        attackCDTimer -= Time.deltaTime;
+        
         if (attackCDTimer < 0)
         {
             animator.Play("Fire");

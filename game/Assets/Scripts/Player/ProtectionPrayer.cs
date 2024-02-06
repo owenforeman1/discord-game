@@ -12,9 +12,11 @@ public enum DamageType
 
 public class ProtectionPrayer : MonoBehaviour
 {
- 
 
-    // Start is called before the first frame update
+    [SerializeField]
+    private Shield Shield;
+
+
     [SerializeField]
     private GameObject ProtectFromLazer;
     [SerializeField]
@@ -34,6 +36,11 @@ public class ProtectionPrayer : MonoBehaviour
     {
         CheckInput();
         DisplayPrayer();
+
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            Shield.Toggle();
+        }
     }
 
     private void CheckInput()
