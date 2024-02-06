@@ -8,10 +8,15 @@ public class PlayerHealth : MonoBehaviour
     
     public int health;
     public ProtectionPrayer ProtectionPrayer;
-
+    public Shield Shield;
 
     public void GetHit(DamageType ProjectileType)
     {
+        if (Shield.isActive)
+        {
+            return;
+        }
+        
         
         if (ProjectileType != ProtectionPrayer.Prayer)
         {

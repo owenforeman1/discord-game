@@ -7,7 +7,8 @@ public enum DamageType
     None,
     Lazer,
     Bullet,
-    Spike
+    Spike,
+    All
 }
 
 public class ProtectionPrayer : MonoBehaviour

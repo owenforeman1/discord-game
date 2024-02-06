@@ -6,6 +6,8 @@ public class FrogExplosion : MonoBehaviour
 {
     public List<GameObject> Limbs = new List<GameObject>();
 
+    public float activeFrames = 20f / 60f;
+
     private void Start()
     {
         Explode();
@@ -20,6 +22,24 @@ public class FrogExplosion : MonoBehaviour
             GameObject newLimb = Instantiate(Limb, transform.position, randomAngle);
 
             newLimb.GetComponent<FrogLimb>().GoCrazy();
+        }
+
+        StartCoroutine(HitboxAndDestroy());
+    }
+
+    IEnumerator HitboxAndDestroy()
+    {
+        
+        yield return new WaitForSeconds(activeFrames);
+
+        Destroy(gameObject);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            collision.gameObject.GetComponent<PlayerHealth>().GetHit(DamageType.Spike);
         }
     }
 }
