@@ -28,6 +28,7 @@ public class SoundManager : MonoBehaviour
 
     public void Play(string soundName)
     {
-        AudioSources[soundName].Play();
+        // Really Sus code here
+        AudioSources[soundName].PlayOneShot(AudioSources[soundName].clip, AudioSources[soundName].volume);
     }
 }
