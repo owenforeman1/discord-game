@@ -6,6 +6,7 @@ using static UnityEngine.GraphicsBuffer;
 public class PlayerMovement : MonoBehaviour
 {
     Rigidbody2D body;
+    public PlayerHealth playerHealth;
 
     float horizontal;
     float vertical;
@@ -20,8 +21,17 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+
+
+
         horizontal = Input.GetAxisRaw("Horizontal");
         vertical = Input.GetAxisRaw("Vertical");
+
+        if (playerHealth.isDead)
+        {
+            horizontal = 0f;
+            vertical = 0f;
+        }
 
         // Graphics direction
         // Determine which direction to rotate towards
