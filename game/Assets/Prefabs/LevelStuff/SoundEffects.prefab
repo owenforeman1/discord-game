@@ -45,5 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioClips:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: 3e7c7f60aac879e4284e0cb46ff51adb, type: 3}
+  - {fileID: 8300000, guid: b8ce635274b8bb34cac963dfcb1dfee1, type: 3}
+  volumes:
+  - 1
+  - 0.2

@@ -25,6 +25,7 @@ public class ProtectionPrayer : MonoBehaviour
     [SerializeField]
     private GameObject ProtectFromSpike;
 
+
     public DamageType Prayer = DamageType.None;
 
     void Start()

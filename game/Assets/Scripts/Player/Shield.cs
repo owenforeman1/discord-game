@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml;
 using UnityEngine;
 
 public class Shield : MonoBehaviour
@@ -9,23 +10,45 @@ public class Shield : MonoBehaviour
     public bool isActive = false;
 
     private bool inAnim = false;
-    private float AnimTimer;
-
+    
+    [Header("Shield Stamina")]
+    public float ShieldStaminaMax = 100f;
+    public float ShieldStamina = 100f;
+    public float StaminaUsageRate = 100f;
+    public float StaminaRechargeRate = 30f;
+    public float MinPercentToActivate = .1f;
 
 
     private void Update()
     {
-        AnimTimer -= Time.deltaTime;
-        if (AnimTimer > 0f)
+        TrackShieldStamina();
+
+    }
+
+    private void TrackShieldStamina()
+    {
+        if (isActive)
         {
-            inAnim = true;
+            // Decrement Stam
+            ShieldStamina -= StaminaUsageRate*Time.deltaTime;
+            if (ShieldStamina <= 0)
+            {
+                ShieldStamina = 0;
+                Deactivate();
+            }
         }
         else
         {
-            inAnim = false;
-        }
+            // Increase Stam
+            ShieldStamina += StaminaRechargeRate * Time.deltaTime;
 
+            if(ShieldStamina > ShieldStaminaMax)
+            {
+                ShieldStamina = ShieldStaminaMax;
+            }
+        }
     }
+
     public void Toggle()
     {
         if (inAnim){ return; }
@@ -42,18 +65,47 @@ public class Shield : MonoBehaviour
 
     public void Activate()
     {
-        animator.Play("ShieldStart");
-        isActive = true;
-        inAnim = true;
 
-        AnimTimer = 15f / 60f;
+        if (inAnim) { return; }
+        // Cant Activate under certain percent
+        if (ShieldStamina/ShieldStaminaMax < MinPercentToActivate)
+        {
+            return;
+        }
+
+        StartCoroutine(ActivateSequence());
     }
     public void Deactivate()
     {
-        animator.Play("ShieldEnd");
-        isActive = false;
-        inAnim = true;
 
-        AnimTimer = 20f / 60f;
+        if (inAnim) { return; }
+        StartCoroutine(DeactivateSequence());
     }
+
+
+
+    IEnumerator ActivateSequence()
+    {
+        inAnim = true;
+        isActive = true;
+        
+        animator.Play("ShieldStart");
+        // Wait for animation
+        yield return new WaitForSeconds(15f / 60f);
+
+        inAnim = false;
+        
+    }
+
+    IEnumerator DeactivateSequence()
+    {
+        inAnim = true;
+        animator.Play("ShieldEnd");
+        // Wait for animation
+        yield return new WaitForSeconds(20f / 60f);
+
+        inAnim = false;
+        isActive = false;
+    }
+
 }
