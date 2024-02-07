@@ -80,6 +80,7 @@ MonoBehaviour:
   pos1: {fileID: 1408421858693951748}
   pos2: {fileID: 397497297647821066}
   moveSpeed: 12
+  DeathIcon: {fileID: 1241524874, guid: 7c4560728440edb40a44c5b5ce8dea0d, type: 3}
 --- !u!61 &3197187371796515346
 BoxCollider2D:
   m_ObjectHideFlags: 0

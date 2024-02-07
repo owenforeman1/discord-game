@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class FrogExplosion : MonoBehaviour
 {
+    public Sprite DeathIcon;
     public List<GameObject> Limbs = new List<GameObject>();
 
+    
     public float activeFrames = 20f / 60f;
 
     private void Start()
@@ -39,7 +41,7 @@ public class FrogExplosion : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            collision.gameObject.GetComponent<PlayerHealth>().GetHit(DamageType.Spike);
+            collision.gameObject.GetComponent<PlayerHealth>().GetHit(DamageType.Spike, DeathIcon);
         }
     }
 }

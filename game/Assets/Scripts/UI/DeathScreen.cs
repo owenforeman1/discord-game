@@ -1,28 +1,48 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using Microsoft.Unity.VisualStudio.Editor;
 
 public class DeathScreen : MonoBehaviour
 {
-    public PlayerHealth PlayerHealth;
+    public DeathHandler DeathHandler;
     public GameObject DeathScreenUI;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+
+    private Sprite KillerIMG = null;
+    public GameObject DeathRecap;
+    public UnityEngine.UI.Image DeathRecapImage;
 
     // Update is called once per frame
     void Update()
     {
-        if (PlayerHealth.isDead)
+        if (DeathHandler.PlayerIsDead)
         {
             // Display
-            DeathScreenUI.SetActive(true);
+            ShowDeathScreen();
         }
         else
         {
             DeathScreenUI.SetActive(false);
         }
+    }
+
+    public void LoadIMG(Sprite KillerIMGIn)
+    {
+        KillerIMG = KillerIMGIn;
+    }
+
+    private void ShowDeathScreen()
+    {
+        DeathScreenUI.SetActive(true);
+        if(KillerIMG != null)
+        {
+            DeathRecapImage.sprite = KillerIMG;
+        }
+        else
+        {
+            DeathRecap.SetActive(false);
+        }
+        
     }
 }

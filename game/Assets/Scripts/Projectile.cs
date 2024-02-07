@@ -14,7 +14,9 @@ public class Projectile : MonoBehaviour
     public DamageType ProjectileType = DamageType.None;
 
     Transform PlayerTransform;
-    
+
+    public Sprite DeathIcon;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -46,7 +48,7 @@ public class Projectile : MonoBehaviour
         {
             if(collision.tag == "Player")
             {
-                collision.gameObject.GetComponent<PlayerHealth>().GetHit(ProjectileType);
+                collision.gameObject.GetComponent<PlayerHealth>().GetHit(ProjectileType, DeathIcon);
                 Destroy(gameObject);
             }
         }

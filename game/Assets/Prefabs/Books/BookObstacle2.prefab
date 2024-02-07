@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 868215326, guid: 4c667e999d4a02c48a1acf170f7a4766, type: 3}
+    - target: {fileID: 3435293198490229916, guid: 88e9d08419c3d5f4db4de71916b74ffa, type: 3}
+      propertyPath: DeathIcon
+      value: 
+      objectReference: {fileID: 868215326, guid: 4c667e999d4a02c48a1acf170f7a4766, type: 3}
     - target: {fileID: 5617904405327432519, guid: 88e9d08419c3d5f4db4de71916b74ffa, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

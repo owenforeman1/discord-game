@@ -137,6 +137,7 @@ MonoBehaviour:
   - {fileID: 9155275315151544589, guid: d1d4e8fbdbfdb704cb01182d7b03904c, type: 3}
   - {fileID: 9155275315151544589, guid: 1896dcabfa543814e8c9f35248bc1360, type: 3}
   - {fileID: 9155275315151544589, guid: 30cbb9ad5d503f84cb3d523573aa6756, type: 3}
+  DeathIcon: {fileID: 21300000, guid: b9708e8d9b1396e4f99bbdc32380cd0e, type: 3}
   activeFrames: 0.33333334
 --- !u!58 &5444631488363480951
 CircleCollider2D:

@@ -9,36 +9,33 @@ public class PlayerHealth : MonoBehaviour
     public int health;
     public ProtectionPrayer ProtectionPrayer;
     public Shield Shield;
+    public DeathHandler DeathHandler;
 
     public bool isDead;
 
     private void Update()
     {
-        if (isDead)
-        {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                string currentSceneName = SceneManager.GetActiveScene().name;
-                SceneManager.LoadScene(currentSceneName);
-            }
-        }
+
     }
 
-    public void GetHit(DamageType ProjectileType)
+    public void GetHit(DamageType ProjectileType, Sprite KillerIMG)
     {
         if (Shield.isActive)
         {
             return;
         }
-        
-        
+        if (isDead)
+        {
+            return;
+        }
+
+
+
         if (ProjectileType != ProtectionPrayer.Prayer)
         {
             // Was hit off prayer
-            // Reload Scence For now
-            //string currentSceneName = SceneManager.GetActiveScene().name;
-            //SceneManager.LoadScene(currentSceneName);
-            isDead = true;
+            // Dead
+            DeathHandler.OnPlayerDeath(KillerIMG);
         }
     }
 }

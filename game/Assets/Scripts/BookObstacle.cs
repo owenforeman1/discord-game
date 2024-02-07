@@ -9,6 +9,8 @@ public class BookObstacle : MonoBehaviour
 
     public float moveSpeed = 8f;
 
+    public Sprite DeathIcon;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +21,7 @@ public class BookObstacle : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            collision.gameObject.GetComponent<PlayerHealth>().GetHit(DamageType.Spike);
+            collision.gameObject.GetComponent<PlayerHealth>().GetHit(DamageType.Spike, DeathIcon);
         }
     }
 
