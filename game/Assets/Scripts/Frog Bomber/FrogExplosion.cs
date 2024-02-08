@@ -26,6 +26,8 @@ public class FrogExplosion : MonoBehaviour
             newLimb.GetComponent<FrogLimb>().GoCrazy();
         }
 
+        GameObject.FindAnyObjectByType<SoundManager>().Play("frogbomb");
+
         StartCoroutine(HitboxAndDestroy());
     }
 
