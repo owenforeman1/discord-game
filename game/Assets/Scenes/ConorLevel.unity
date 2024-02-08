@@ -588,6 +588,7 @@ GameObject:
   m_Component:
   - component: {fileID: 136598459}
   - component: {fileID: 136598458}
+  - component: {fileID: 136598460}
   m_Layer: 0
   m_Name: ExitPortal
   m_TagString: Untagged
@@ -646,6 +647,19 @@ Transform:
   - {fileID: 1883671732}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &136598460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 136598457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9ef47f7556e16c46a7851ab50ec9e9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GameManager: {fileID: 1654802460}
 --- !u!1001 &161799971
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4412,11 +4426,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4444676431248971785, guid: 33540ffd5595e8040bf3014fcba1dedb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -13.3
+      value: 82.8
       objectReference: {fileID: 0}
     - target: {fileID: 4444676431248971785, guid: 33540ffd5595e8040bf3014fcba1dedb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.7
+      value: -64.8
       objectReference: {fileID: 0}
     - target: {fileID: 4444676431248971785, guid: 33540ffd5595e8040bf3014fcba1dedb, type: 3}
       propertyPath: m_LocalPosition.z
