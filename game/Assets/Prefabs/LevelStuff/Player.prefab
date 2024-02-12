@@ -305,6 +305,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 252593360187167789}
   isActive: 0
+  ShieldStaminaMax: 100
+  ShieldStamina: 100
+  StaminaUsageRate: 100
+  StaminaRechargeRate: 30
+  MinPercentToActivate: 0.1
 --- !u!1 &2798019201382678998
 GameObject:
   m_ObjectHideFlags: 0
@@ -556,6 +561,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d987a949bdc38a42be0ac08cc203e16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerHealth: {fileID: 5099453745521656117}
   runSpeed: 25
   rotationSpeed: 5
 --- !u!114 &5849943158033300294
@@ -590,6 +596,8 @@ MonoBehaviour:
   health: 100
   ProtectionPrayer: {fileID: 5849943158033300294}
   Shield: {fileID: 3187096811092417164}
+  DeathHandler: {fileID: 0}
+  isDead: 0
 --- !u!1 &3540633769668386283
 GameObject:
   m_ObjectHideFlags: 0
