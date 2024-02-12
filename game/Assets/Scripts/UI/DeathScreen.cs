@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using Microsoft.Unity.VisualStudio.Editor;
 
 public class DeathScreen : MonoBehaviour
 {
