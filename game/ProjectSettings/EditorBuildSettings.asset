@@ -5,19 +5,19 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: e8289626d198ba74a9bacffb1e7fa78d
-  - enabled: 0
-    path: Assets/Scenes/ConorLevel.unity
-    guid: 0ca09f06a75cf7748a42063b935eed4c
-  - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 0
-    path: Assets/Scenes/EndScreen.unity
-    guid: 43547e97862ad3f47ac47e9a190b2c2b
   - enabled: 1
     path: Assets/Scenes/Level1.unity
     guid: 5d1500df53a3b6b41aa675808017ab46
+  - enabled: 0
+    path: Assets/Scenes/ConorLevel.unity
+    guid: 0ca09f06a75cf7748a42063b935eed4c
+  - enabled: 1
+    path: Assets/Scenes/SampleScene.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/EndScreen.unity
+    guid: 43547e97862ad3f47ac47e9a190b2c2b
   m_configObjects: {}

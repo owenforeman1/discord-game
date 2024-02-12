@@ -57,6 +57,11 @@ public class Projectile : MonoBehaviour
                 collision.gameObject.GetComponent<PlayerHealth>().GetHit(ProjectileType, DeathIcon);
                 Destroy(gameObject);
             }
+
+            if (collision.tag == "Wall")
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }
