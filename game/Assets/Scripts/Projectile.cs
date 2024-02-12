@@ -9,6 +9,8 @@ public class Projectile : MonoBehaviour
     [SerializeField]
     Rigidbody2D rb;
 
+    public bool followPlayer;
+
     public float speed = 20f;
 
     public DamageType ProjectileType = DamageType.None;
@@ -21,12 +23,16 @@ public class Projectile : MonoBehaviour
     void Start()
     {
         PlayerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        MoveToPlayer();
     }
 
     // Update is called once per frame
     void Update()
     {
-        MoveToPlayer();
+        if (followPlayer)
+        {
+            MoveToPlayer();
+        }
     }
 
     private void MoveToPlayer()

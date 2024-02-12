@@ -52,6 +52,7 @@ MonoBehaviour:
   GunLocation1: {fileID: 8788079137130349684}
   GunLocation2: {fileID: 8994360046721582980}
   attackCD: 8
+  attackRange: 15
 --- !u!1 &2629825592790287002
 GameObject:
   m_ObjectHideFlags: 0
