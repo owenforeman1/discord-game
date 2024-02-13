@@ -309,7 +309,7 @@ MonoBehaviour:
   ShieldStamina: 100
   StaminaUsageRate: 100
   StaminaRechargeRate: 30
-  MinPercentToActivate: 0.1
+  MinPercentToActivate: 0.35
 --- !u!1 &2798019201382678998
 GameObject:
   m_ObjectHideFlags: 0

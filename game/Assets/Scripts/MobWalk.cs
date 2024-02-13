@@ -7,7 +7,11 @@ public class MobWalk : MonoBehaviour
     // A script for a mob walking around
 
     private Transform playerTransform;
-    public Animator animator;
+    [Header("Must Serialize")]
+    [SerializeField]
+    private Animator animator;
+    [SerializeField]
+    private Rigidbody2D rb;
 
     private Vector2 OriginPoint;
 
@@ -17,6 +21,8 @@ public class MobWalk : MonoBehaviour
     public float walkspeed = 5f;
 
     public Vector2 WaitTime = new Vector2(3f, 6f);
+
+    public float GiveUpTime = 3.5f;
 
     void Start()
     {
@@ -50,10 +56,14 @@ public class MobWalk : MonoBehaviour
 
     IEnumerator MoveToPosition(Vector2 point)
     {
-        while (Vector2.Distance(transform.position, point) > .1f)
+        float GiveUpTimer = 0f;
+        
+        while (Vector2.Distance(transform.position, point) > .1f && GiveUpTimer < GiveUpTime)
         {
             Vector2 dir = (point - (Vector2)transform.position).normalized;
-            transform.position += (Vector3)(dir * walkspeed * Time.deltaTime);
+            rb.velocity = (Vector3)(dir * walkspeed);
+
+            GiveUpTimer += Time.deltaTime;
             yield return null;
         }
     }

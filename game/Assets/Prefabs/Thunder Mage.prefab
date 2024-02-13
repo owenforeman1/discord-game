@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 3509573584631979042}
   - component: {fileID: 8233112497469774188}
   - component: {fileID: 1961135299593560354}
+  - component: {fileID: 5011814615883143914}
+  - component: {fileID: 5898621960498208545}
   m_Layer: 0
   m_Name: Thunder Mage
   m_TagString: Untagged
@@ -47,9 +49,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 4643539839142720998}
+  rb: {fileID: 5011814615883143914}
   RoamDistance: 20
   walkspeed: 7
   WaitTime: {x: 3, y: 6}
+  GiveUpTime: 3
 --- !u!114 &1961135299593560354
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67,6 +71,68 @@ MonoBehaviour:
   projectileSpawnLocation: {fileID: 3509573584631979042}
   attackCD: 8
   attackRange: 20
+--- !u!50 &5011814615883143914
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 151753014441364490}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 4
+--- !u!70 &5898621960498208545
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 151753014441364490}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.08933258, y: 0.12429428}
+  m_Size: {x: 0.97387695, y: 2.2478867}
+  m_Direction: 0
 --- !u!1 &7304265187195099906
 GameObject:
   m_ObjectHideFlags: 0
@@ -162,7 +228,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.01, y: -0.23, z: 0}
-  m_LocalScale: {x: 20, y: 20, z: 20}
+  m_LocalScale: {x: 10, y: 10, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6144011199908797401}

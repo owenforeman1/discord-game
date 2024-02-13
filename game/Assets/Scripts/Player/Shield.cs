@@ -13,6 +13,7 @@ public class Shield : MonoBehaviour
     
     [Header("Shield Stamina")]
     public float ShieldStaminaMax = 100f;
+    [HideInInspector]
     public float ShieldStamina = 100f;
     public float StaminaUsageRate = 100f;
     public float StaminaRechargeRate = 30f;

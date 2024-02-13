@@ -25,12 +25,13 @@ public class ProtectionPrayer : MonoBehaviour
     [SerializeField]
     private GameObject ProtectFromSpike;
 
+    private Pause pause;
 
     public DamageType Prayer = DamageType.None;
 
     void Start()
     {
-        
+        pause = GameObject.FindAnyObjectByType<Pause>();
     }
 
     // Update is called once per frame
@@ -39,9 +40,25 @@ public class ProtectionPrayer : MonoBehaviour
         CheckInput();
         DisplayPrayer();
 
-        if (Input.GetKeyDown(KeyCode.Tab))
+        if (AllowInput())
         {
-            Shield.Toggle();
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                Shield.Toggle();
+            }
+        }
+
+    }
+
+    private bool AllowInput()
+    {
+        if (pause != null)
+        {
+            return !pause.isGamePaused();
+        }
+        else
+        {
+            return true;
         }
     }
 

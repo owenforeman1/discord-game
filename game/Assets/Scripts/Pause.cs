@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Pause : MonoBehaviour
 {
-    bool gamePaused;
+    private bool gamePaused;
 
     // Update is called once per frame
     void Update()
@@ -13,6 +13,11 @@ public class Pause : MonoBehaviour
         {
             TogglePause();
         }
+    }
+
+    public bool isGamePaused()
+    {
+        return gamePaused;
     }
 
     public void PauseGame()
