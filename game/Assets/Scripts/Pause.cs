@@ -6,15 +6,7 @@ public class Pause : MonoBehaviour
 {
     private bool gamePaused;
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            TogglePause();
-        }
-    }
-
+    // WARNING PAUSING IS NOT A SCENCE THING ITS A PROJECT SETTING AND DOES NOT GET RESET ON SCENCE LOAD!
     public bool isGamePaused()
     {
         return gamePaused;
@@ -24,6 +16,7 @@ public class Pause : MonoBehaviour
     {
         Time.timeScale = 0;
         gamePaused = true;
+
     }
     public void UnpauseGame()
     {

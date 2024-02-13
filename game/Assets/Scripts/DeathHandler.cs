@@ -26,7 +26,7 @@ public class DeathHandler : MonoBehaviour
     {
         pause.UnpauseGame();
         string currentSceneName = SceneManager.GetActiveScene().name;
-        SceneManager.LoadScene(currentSceneName);
+        SceneManager.LoadScene(currentSceneName, LoadSceneMode.Single);
     }
 
     public void OnPlayerDeath(Sprite KillerIMG)

@@ -31,7 +31,7 @@ public class ProtectionPrayer : MonoBehaviour
 
     void Start()
     {
-        pause = GameObject.FindAnyObjectByType<Pause>();
+        pause = GameObject.FindObjectOfType<Pause>();
     }
 
     // Update is called once per frame

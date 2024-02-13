@@ -20,7 +20,7 @@ public class SpeedRunTimer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float currentTime = Time.time;
+        float currentTime = Time.time - StartTime;
         int minutes = (int)currentTime / 60;
         string seconds = ((int)(currentTime - (float)minutes * 60)).ToString();
         if(seconds.Length == 1)
