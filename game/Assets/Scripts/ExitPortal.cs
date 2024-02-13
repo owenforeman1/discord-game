@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class ExitPortal : MonoBehaviour
 {
-    int EndScreenIndex = 3;
+    string EndScreenName = "EndScreen";
     public GameManager GameManager;
 
 
@@ -23,7 +23,7 @@ public class ExitPortal : MonoBehaviour
 
     private void OnGameWin()
     {
-        SceneManager.LoadScene(EndScreenIndex, LoadSceneMode.Single);
+        SceneManager.LoadScene(EndScreenName, LoadSceneMode.Single);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

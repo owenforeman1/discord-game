@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PlayButton : MonoBehaviour
+public class PlayLevelButton : MonoBehaviour
 {
-    
-    int level1 = 1;
+
+    public string LevelName;
     
     public void PlayButtonClick()
     {
-        SceneManager.LoadScene(level1, LoadSceneMode.Single);
+        SceneManager.LoadScene(LevelName, LoadSceneMode.Single);
     }
 }
