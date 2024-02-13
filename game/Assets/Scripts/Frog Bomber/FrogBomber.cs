@@ -54,7 +54,7 @@ public class FrogBomber : MonoBehaviour
     {
         moveLocked = true;
         animator.Play("explode");
-        yield return new WaitForSeconds(1.45f);
+        yield return new WaitForSeconds(50f/60f);
         Instantiate(explosion, transform.position, Quaternion.identity);
         Instantiate(particle1, transform.position, Quaternion.identity);
         Instantiate(particle2, transform.position, Quaternion.identity);

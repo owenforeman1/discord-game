@@ -238,7 +238,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   expodeRange: 3
-  runSpeed: 10
+  runSpeed: 15
   rb: {fileID: 8424827892398838066}
   animator: {fileID: 8016431258730250143}
   explosion: {fileID: 4972200933369045041, guid: 4a6e1aa53a1dd404a95ad4d9a723ef4b, type: 3}
