@@ -49,7 +49,9 @@ public class MobWalk : MonoBehaviour
         {
             SetWalkingAnim(true);
             yield return MoveToPosition(PickPoint());
+            
             SetWalkingAnim(false);
+            rb.velocity = Vector3.zero;
             yield return new WaitForSeconds(Random.Range(WaitTime.x, WaitTime.y));
         }
     }

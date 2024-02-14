@@ -21,6 +21,9 @@ public class ThunderMage : MonoBehaviour
 
     public float attackRange = 20f;
 
+    [Header("Configure")]
+    public float BoltOffset = 25f;
+
 
     private void Start()
     {
@@ -52,8 +55,13 @@ public class ThunderMage : MonoBehaviour
     // Called By the animator
     public void Fire()
     {
-        
+
+        // Summon 3 ThunderBolt 2 at a slight arc
         Instantiate(ThunderBolt, projectileSpawnLocation.position, Quaternion.identity);
+        GameObject Arc1 = Instantiate(ThunderBolt, projectileSpawnLocation.position, Quaternion.identity);
+        Arc1.GetComponent<Projectile>().SetPath(BoltOffset);
+        GameObject Arc2 = Instantiate(ThunderBolt, projectileSpawnLocation.position, Quaternion.identity);
+        Arc2.GetComponent<Projectile>().SetPath(-BoltOffset);
 
         // Play Sound
         //GameObject.FindAnyObjectByType<SoundManager>().Play("gunsound");

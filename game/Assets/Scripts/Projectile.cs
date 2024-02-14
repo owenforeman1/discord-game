@@ -20,32 +20,47 @@ public class Projectile : MonoBehaviour
     public Sprite DeathIcon;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         PlayerTransform = GameObject.FindGameObjectWithTag("Player").transform;
-        MoveToPlayer();
+        SetPath();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (followPlayer)
-        {
-            MoveToPlayer();
-        }
+
     }
 
-    private void MoveToPlayer()
+    public void SetPath(float angleOffset = 0f)
+    {
+        AimAtPlayer(angleOffset);
+    }
+
+    private void AimAtPlayer(float angleOffset)
     {
         // Go to player
         Vector2 MoveDirection = (PlayerTransform.position - transform.position).normalized;
         rb.velocity = speed * MoveDirection;
 
-        // Rotate Direction
-        Quaternion toRotation = Quaternion.LookRotation(Vector3.forward, MoveDirection);
-        //transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
-        transform.rotation = toRotation;
+        RotateToForward();
 
+        if (angleOffset != 0f)
+        {
+            transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z + angleOffset);
+
+            Vector2 newDir = transform.up;
+            rb.velocity = speed * newDir;
+        }
+    }
+
+    private void RotateToForward()
+    {
+        // Rotates the object so the top is the direction the object is moving
+
+        Vector2 MoveDirection = rb.velocity.normalized;
+        Quaternion toRotation = Quaternion.LookRotation(Vector3.forward, MoveDirection);
+        transform.rotation = toRotation;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

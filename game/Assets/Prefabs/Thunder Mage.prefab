@@ -70,7 +70,8 @@ MonoBehaviour:
   animator: {fileID: 4643539839142720998}
   projectileSpawnLocation: {fileID: 3509573584631979042}
   attackCD: 8
-  attackRange: 20
+  attackRange: 16
+  BoltOffset: 35
 --- !u!50 &5011814615883143914
 Rigidbody2D:
   serializedVersion: 4
