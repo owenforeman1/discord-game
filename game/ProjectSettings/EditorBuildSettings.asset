@@ -12,10 +12,10 @@ EditorBuildSettings:
     path: Assets/Scenes/Level1.unity
     guid: 5d1500df53a3b6b41aa675808017ab46
   - enabled: 0
-    path: Assets/Scenes/ConorLevel.unity
+    path: Assets/Scenes/TestLevels/ConorLevel.unity
     guid: 0ca09f06a75cf7748a42063b935eed4c
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/Scenes/TestLevels/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
     path: Assets/Scenes/EndScreen.unity

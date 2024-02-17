@@ -13,8 +13,6 @@ public class Projectile : MonoBehaviour
 
     public float speed = 20f;
 
-    public DamageType ProjectileType = DamageType.None;
-
     Transform PlayerTransform;
 
     public Sprite DeathIcon;
@@ -69,7 +67,7 @@ public class Projectile : MonoBehaviour
         {
             if(collision.tag == "Player")
             {
-                collision.gameObject.GetComponent<PlayerHealth>().GetHit(ProjectileType, DeathIcon);
+                collision.gameObject.GetComponent<PlayerHealth>().GetHit(DeathIcon);
                 Destroy(gameObject);
             }
 

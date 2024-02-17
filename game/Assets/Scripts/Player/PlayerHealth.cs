@@ -18,7 +18,7 @@ public class PlayerHealth : MonoBehaviour
 
     }
 
-    public void GetHit(DamageType ProjectileType, Sprite KillerIMG)
+    public void GetHit(Sprite KillerIMG)
     {
         if (Shield.isActive)
         {
@@ -29,13 +29,7 @@ public class PlayerHealth : MonoBehaviour
             return;
         }
 
+        DeathHandler.OnPlayerDeath(KillerIMG);
 
-
-        if (ProjectileType != ProtectionPrayer.Prayer)
-        {
-            // Was hit off prayer
-            // Dead
-            DeathHandler.OnPlayerDeath(KillerIMG);
-        }
     }
 }

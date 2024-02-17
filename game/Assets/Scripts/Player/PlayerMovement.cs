@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
@@ -11,7 +12,10 @@ public class PlayerMovement : MonoBehaviour
     float horizontal;
     float vertical;
 
-    public float runSpeed = 20.0f;
+    public float baseMoveSpeed = 20.0f;
+    private float activeMoveSpeed = 20.0f;
+    private List<float> moveSpeedModifers = new List<float>();
+
     public float rotationSpeed = 180.0f;
 
     void Start()
@@ -21,7 +25,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-
+        CalculateMoveSpeed();
 
 
         horizontal = Input.GetAxisRaw("Horizontal");
@@ -53,6 +57,28 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         Vector2 movementVector = new Vector2(horizontal, vertical).normalized;
-        body.velocity = movementVector * runSpeed;
+        body.velocity = movementVector * activeMoveSpeed;
+    }
+
+    private void CalculateMoveSpeed()
+    {
+        activeMoveSpeed = baseMoveSpeed;
+
+        foreach (float mod in moveSpeedModifers)
+        {
+            activeMoveSpeed *= mod;
+        }
+    }
+
+    public void ChangeModifier(bool add, float Modifier)
+    {
+        if (add)
+        {
+            moveSpeedModifers.Add(Modifier);
+        }
+        else
+        {
+            moveSpeedModifers.Remove(Modifier);
+        }
     }
 }

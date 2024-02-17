@@ -21,7 +21,7 @@ public class BookObstacle : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            collision.gameObject.GetComponent<PlayerHealth>().GetHit(DamageType.Spike, DeathIcon);
+            collision.gameObject.GetComponent<PlayerHealth>().GetHit(DeathIcon);
         }
     }
 
