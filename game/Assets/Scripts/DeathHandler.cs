@@ -36,6 +36,11 @@ public class DeathHandler : MonoBehaviour
         playerHealth.isDead = true;
         // Death UI gets loaded
         DeathScreen.LoadIMG(KillerIMG);
+        // Play Death Sound
+        GameObject.FindAnyObjectByType<SoundManager>().Play("DeathScreen");
+        //Shake Screen
+        //GameObject.FindAnyObjectByType<Camera>().gameObject.GetComponent<CameraShake>().enabled = true;
+
         // Pause Game
         pause.PauseGame();
     }

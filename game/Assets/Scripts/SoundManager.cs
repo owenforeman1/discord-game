@@ -11,7 +11,7 @@ public class SoundManager : MonoBehaviour
     Dictionary<string, AudioSource> AudioSources = new Dictionary<string, AudioSource>();
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         int index = 0;
         foreach (AudioClip clip in audioClips)

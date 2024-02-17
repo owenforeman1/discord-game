@@ -5,7 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class EndScreen : MonoBehaviour
 {
-
+    private void Start()
+    {
+        GameObject.FindAnyObjectByType<SoundManager>().Play("WinScreen");
+    }
 
     public void BackToMenu()
     {
