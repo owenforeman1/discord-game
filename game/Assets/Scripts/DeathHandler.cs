@@ -38,6 +38,9 @@ public class DeathHandler : MonoBehaviour
         DeathScreen.LoadIMG(KillerIMG);
         // Play Death Sound
         GameObject.FindAnyObjectByType<SoundManager>().Play("DeathScreen");
+        GameObject.FindAnyObjectByType<SoundManager>().Play("hitsound");
+
+
         //Shake Screen
         //GameObject.FindAnyObjectByType<Camera>().gameObject.GetComponent<CameraShake>().enabled = true;
 

@@ -73,6 +73,7 @@ public class Projectile : MonoBehaviour
 
             if (collision.tag == "Wall")
             {
+                //GameObject.FindAnyObjectByType<SoundManager>().Play("hitsound");
                 Destroy(gameObject);
             }
         }

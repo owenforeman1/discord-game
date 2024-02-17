@@ -63,8 +63,9 @@ public class ThunderMage : MonoBehaviour
         GameObject Arc2 = Instantiate(ThunderBolt, projectileSpawnLocation.position, Quaternion.identity);
         Arc2.GetComponent<Projectile>().SetPath(-BoltOffset);
 
+
         // Play Sound
-        //GameObject.FindAnyObjectByType<SoundManager>().Play("gunsound");
+        GameObject.FindAnyObjectByType<SoundManager>().Play("thundershoot");
 
     }
 }
