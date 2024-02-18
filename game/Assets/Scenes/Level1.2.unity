@@ -469,6 +469,18 @@ PrefabInstance:
       propertyPath: playertransform
       value: 
       objectReference: {fileID: 2146682922}
+    - target: {fileID: 4542456482632426757, guid: 364af4056be3a9f45a364532517f22ff, type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0.14880739
+      objectReference: {fileID: 0}
+    - target: {fileID: 4542456482632426757, guid: 364af4056be3a9f45a364532517f22ff, type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0.18668735
+      objectReference: {fileID: 0}
+    - target: {fileID: 4542456482632426757, guid: 364af4056be3a9f45a364532517f22ff, type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0.2264151
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
