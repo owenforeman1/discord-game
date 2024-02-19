@@ -204,6 +204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2624c2a3a1fd56842a66fbbe220809c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minDistanceToPlaySound: 15
 --- !u!1 &6189757258278446444
 GameObject:
   m_ObjectHideFlags: 0
