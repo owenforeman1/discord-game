@@ -166,7 +166,6 @@ MonoBehaviour:
   rb: {fileID: 5683343888470538478}
   followPlayer: 0
   speed: 15
-  ProjectileType: 2
   DeathIcon: {fileID: -1663004450, guid: 95f199edd13518d43b94dfb4ca715100, type: 3}
 --- !u!50 &5683343888470538478
 Rigidbody2D:
@@ -211,7 +210,7 @@ CapsuleCollider2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_LayerOverridePriority: 0
+  m_LayerOverridePriority: 2
   m_ForceSendLayers:
     serializedVersion: 2
     m_Bits: 4294967295
