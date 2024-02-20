@@ -12,6 +12,8 @@ public class MiniGunEmitter : MonoBehaviour
 
     public GameObject projectile;
 
+    public string soundName;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,7 +44,10 @@ public class MiniGunEmitter : MonoBehaviour
 
             float randomAngle = Random.Range(-angle/2, angle/2);
             newProjectile.GetComponent<Projectile>().SetPath(randomAngle);
-            
+
+            // Play Sound
+            GameObject.FindAnyObjectByType<SoundManager>().Play(soundName);
+
             yield return new WaitForSeconds(Random.Range(inbetweenTime.x, inbetweenTime.y));
 
 
