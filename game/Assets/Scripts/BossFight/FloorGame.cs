@@ -17,8 +17,12 @@ public class FloorGame : MonoBehaviour
 
     public float fadeOutTime = .5f;
 
+    public Color indicatorColor;
+    public Color killColor;
 
-    // Start is called before the first frame update
+    // Randomly picks 1 or 2 floor to light up and kill player if they stand on it
+    // It fades to the indicatorColor then slams to the killColor when active
+
     void Start()
     {
         StartCoroutine(Loop());
@@ -53,7 +57,6 @@ public class FloorGame : MonoBehaviour
             i = 0;
             while (i < activeFloorsAmount)
             {
-                //print(Floors[i]);
                 if (i + 1 == activeFloorsAmount)
                 {
 
@@ -78,42 +81,38 @@ public class FloorGame : MonoBehaviour
 
     IEnumerator LightUpFloor(GameObject floor)
     {
+        Tilemap tilemap = floor.GetComponent<Tilemap>();
 
+        // Fade in
+        yield return FadeTilemapColor(tilemap, Color.white, indicatorColor, timeToChangeColor);
+        tilemap.color = killColor;
+
+        // Hold for time its active
+        yield return new WaitForSeconds(activeFloorTime);
+        
+        // Fade out
+        yield return FadeTilemapColor(tilemap, Color.red, Color.white, fadeOutTime);
+
+    }
+
+    IEnumerator FadeTilemapColor(Tilemap tilemap, Color startColor, Color endColor, float timeDuration)
+    {
 
         float timer = 0f;
-        float ratio = 0f;
-        
+        float ratio;
+
         // Fade in
-        while (timer < timeToChangeColor)
+        while (timer < timeDuration)
         {
-            ratio = timer / timeToChangeColor;
+            ratio = timer / timeDuration;
 
 
-            floor.GetComponent<Tilemap>().color = Color.Lerp(Color.white, Color.red, ratio);
+            tilemap.color = Color.Lerp(startColor, endColor, ratio);
             timer += Time.deltaTime;
 
             yield return null;
         }
 
-        floor.GetComponent<Tilemap>().color = Color.red;
-
-        yield return new WaitForSeconds(activeFloorTime);
-
-        timer = 0f;
-        timer = 0f;
-        // Fade out
-        while (timer < fadeOutTime)
-        {
-            ratio = timer / fadeOutTime;
-
-
-            floor.GetComponent<Tilemap>().color = Color.Lerp(Color.red, Color.white, ratio);
-            timer += Time.deltaTime;
-
-            yield return null;
-        }
-
-        floor.GetComponent<Tilemap>().color = Color.white;
-
+        tilemap.color = endColor;
     }
 }
