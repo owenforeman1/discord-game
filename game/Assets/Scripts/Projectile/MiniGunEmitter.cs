@@ -40,7 +40,7 @@ public class MiniGunEmitter : MonoBehaviour
             
             GameObject newProjectile = Instantiate(projectile, transform.position, Quaternion.identity);
 
-            float randomAngle = Random.Range(-angle, angle);
+            float randomAngle = Random.Range(-angle/2, angle/2);
             newProjectile.GetComponent<Projectile>().SetPath(randomAngle);
             
             yield return new WaitForSeconds(Random.Range(inbetweenTime.x, inbetweenTime.y));

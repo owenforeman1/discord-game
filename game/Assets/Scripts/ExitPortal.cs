@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class ExitPortal : MonoBehaviour
 {
-    string EndScreenName = "EndScreen";
+    public string EndScreenName = "EndScreen";
     public GameManager GameManager;
 
 
