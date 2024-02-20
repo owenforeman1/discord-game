@@ -85,6 +85,7 @@ public class FloorGame : MonoBehaviour
 
         // Fade in
         yield return FadeTilemapColor(tilemap, Color.white, indicatorColor, timeToChangeColor);
+        // slam the kill color
         tilemap.color = killColor;
 
         // Hold for time its active
