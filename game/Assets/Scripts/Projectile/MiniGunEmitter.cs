@@ -46,7 +46,11 @@ public class MiniGunEmitter : MonoBehaviour
             newProjectile.GetComponent<Projectile>().SetPath(randomAngle);
 
             // Play Sound
-            GameObject.FindAnyObjectByType<SoundManager>().Play(soundName);
+            if (soundName != "")
+            {
+                GameObject.FindAnyObjectByType<SoundManager>().Play(soundName);
+            }
+            
 
             yield return new WaitForSeconds(Random.Range(inbetweenTime.x, inbetweenTime.y));
 

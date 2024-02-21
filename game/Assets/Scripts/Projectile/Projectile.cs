@@ -17,6 +17,8 @@ public class Projectile : MonoBehaviour
 
     public Sprite DeathIcon;
 
+    public float lifeTime = 10f;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -27,7 +29,7 @@ public class Projectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        Destroy(gameObject, lifeTime);
     }
 
     public void SetPath(float angleOffset = 0f)

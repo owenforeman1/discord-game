@@ -31,6 +31,6 @@ public class ProjectileEmitter : MonoBehaviour
 
     private void Shoot()
     {
-        Instantiate(possibleprojectiles[Random.Range(0, possibleprojectiles.Count)]);
+        Instantiate(possibleprojectiles[Random.Range(0, possibleprojectiles.Count)], transform.position, Quaternion.identity);
     }
 }
