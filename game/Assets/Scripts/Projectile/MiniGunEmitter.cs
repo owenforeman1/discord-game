@@ -14,10 +14,15 @@ public class MiniGunEmitter : MonoBehaviour
 
     public string soundName;
 
+    public bool autonomous = true;
+
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(CycleFire());
+        if (autonomous)
+        {
+            StartCoroutine(CycleFire());
+        }
     }
 
     IEnumerator CycleFire()

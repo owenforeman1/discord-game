@@ -7,8 +7,13 @@ public class DeathHandler : MonoBehaviour
 {
     public bool PlayerIsDead;
     public Pause pause;
-    public PlayerHealth playerHealth;
+    private PlayerHealth playerHealth;
     public DeathScreen DeathScreen;
+
+    private void Start()
+    {
+        playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
+    }
 
     // Update is called once per frame
     void Update()

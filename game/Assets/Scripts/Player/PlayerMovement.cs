@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
     float vertical;
 
     public float baseMoveSpeed = 20.0f;
-    private float activeMoveSpeed = 20.0f;
+    public float activeMoveSpeed = 20.0f;
     private List<float> moveSpeedModifers = new List<float>();
 
     public float rotationSpeed = 180.0f;

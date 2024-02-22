@@ -19,6 +19,7 @@ public class FloorGame : MonoBehaviour
 
     public Color indicatorColor;
     public Color killColor;
+    public Color defaultColor;
 
     // Randomly picks 1 or 2 floor to light up and kill player if they stand on it
     // It fades to the indicatorColor then slams to the killColor when active
@@ -84,7 +85,7 @@ public class FloorGame : MonoBehaviour
         Tilemap tilemap = floor.GetComponent<Tilemap>();
 
         // Fade in
-        yield return FadeTilemapColor(tilemap, Color.white, indicatorColor, timeToChangeColor);
+        yield return FadeTilemapColor(tilemap, defaultColor, indicatorColor, timeToChangeColor);
         // slam the kill color
         tilemap.color = killColor;
 
@@ -92,7 +93,7 @@ public class FloorGame : MonoBehaviour
         yield return new WaitForSeconds(activeFloorTime);
         
         // Fade out
-        yield return FadeTilemapColor(tilemap, Color.red, Color.white, fadeOutTime);
+        yield return FadeTilemapColor(tilemap, killColor, defaultColor, fadeOutTime);
 
     }
 

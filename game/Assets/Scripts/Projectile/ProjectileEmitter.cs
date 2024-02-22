@@ -9,7 +9,8 @@ public class ProjectileEmitter : MonoBehaviour
     public float emitTimer;
 
     public List<GameObject> possibleprojectiles = new List<GameObject>();
-    
+
+    public bool autonomous = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,14 +20,18 @@ public class ProjectileEmitter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        emitTimer -= Time.deltaTime;
-
-        if(emitTimer <= 0)
+        if (autonomous)
         {
-            Shoot();
+            emitTimer -= Time.deltaTime;
 
-            emitTimer = Random.Range(EmitTimeMinMax.x, EmitTimeMinMax.y);
+            if (emitTimer <= 0)
+            {
+                Shoot();
+
+                emitTimer = Random.Range(EmitTimeMinMax.x, EmitTimeMinMax.y);
+            }
         }
+
     }
 
     private void Shoot()

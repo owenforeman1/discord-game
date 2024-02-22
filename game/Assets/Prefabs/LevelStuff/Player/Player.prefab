@@ -125,6 +125,7 @@ GameObject:
   - component: {fileID: 5849943158033300294}
   - component: {fileID: 5099453745521656117}
   - component: {fileID: 6657065496011248005}
+  - component: {fileID: 7610113955664738905}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -224,7 +225,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHealth: {fileID: 5099453745521656117}
-  runSpeed: 25
+  baseMoveSpeed: 20
+  activeMoveSpeed: 20
   rotationSpeed: 5
 --- !u!114 &5849943158033300294
 MonoBehaviour:
@@ -271,6 +273,20 @@ MonoBehaviour:
   spriteRenderer: {fileID: 6850206822624840670}
   defaultColor: {r: 1, g: 1, b: 1, a: 1}
   sewagedColor: {r: 0, g: 1, b: 0, a: 1}
+--- !u!114 &7610113955664738905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3246140519202269927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49747445e61e5c4439cf49b5a7803512, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numSegments: 3
+  GrubSegmentBody: {fileID: 2498596566628907743, guid: 94780a81c54863a4e89d66b5e0da4b80, type: 3}
 --- !u!1 &3717595428601911885
 GameObject:
   m_ObjectHideFlags: 0
