@@ -3299,7 +3299,7 @@ GameObject:
   - component: {fileID: 825410680}
   - component: {fileID: 825410679}
   - component: {fileID: 825410681}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Walls
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -9138,7 +9138,7 @@ GameObject:
   - component: {fileID: 898463390}
   - component: {fileID: 898463389}
   - component: {fileID: 898463388}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TempWalls2
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -9724,7 +9724,7 @@ GameObject:
   - component: {fileID: 1050152430}
   - component: {fileID: 1050152429}
   - component: {fileID: 1050152428}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TempWalls3
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -11032,7 +11032,7 @@ GameObject:
   - component: {fileID: 1662320487}
   - component: {fileID: 1662320490}
   - component: {fileID: 1662320489}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TempWalls1
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -38704,6 +38704,18 @@ PrefabInstance:
       propertyPath: DeathHandler
       value: 
       objectReference: {fileID: 973618580}
+    - target: {fileID: 6900436051555346455, guid: 33540ffd5595e8040bf3014fcba1dedb, type: 3}
+      propertyPath: m_Radius
+      value: 0.85331076
+      objectReference: {fileID: 0}
+    - target: {fileID: 6900436051555346455, guid: 33540ffd5595e8040bf3014fcba1dedb, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.35331076
+      objectReference: {fileID: 0}
+    - target: {fileID: 7610113955664738905, guid: 33540ffd5595e8040bf3014fcba1dedb, type: 3}
+      propertyPath: numSegments
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

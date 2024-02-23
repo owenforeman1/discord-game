@@ -5,6 +5,7 @@ using UnityEngine;
 public class GrubHead : MonoBehaviour
 {
     public int numSegments = 3;
+    public GameObject GrubSegmentHead;
     public GameObject GrubSegmentBody;
 
 
@@ -16,10 +17,23 @@ public class GrubHead : MonoBehaviour
         Transform lastSegment = transform;
         for (int i = 0; i < numSegments; i++)
         {
-            GameObject newGrubSegmentObj = Instantiate(GrubSegmentBody, transform.position, Quaternion.identity);
+            GameObject GrubSegment;
+            if (i == 0)
+            {
+                GrubSegment = GrubSegmentHead;
+            }
+            else
+            {
+                GrubSegment = GrubSegmentBody;
+            }
+
+
+
+            GameObject newGrubSegmentObj = Instantiate(GrubSegment, transform.position, Quaternion.identity);
             GrubSegment newGrubSegment = newGrubSegmentObj.GetComponent<GrubSegment>();
             newGrubSegment.playerMovement = PlayerMovement;
             newGrubSegment.followedSegment = lastSegment;
+            newGrubSegment.index = i;
 
             lastSegment = newGrubSegmentObj.transform;
         }
