@@ -234,7 +234,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a4d000b6de83e24da9636e9929cb08d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteRenderer: {fileID: 0}
   defaultColor: {r: 1, g: 1, b: 1, a: 1}
   sewagedColor: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &7610113955664738905
@@ -249,7 +248,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49747445e61e5c4439cf49b5a7803512, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numSegments: 5
+  numSegments: 7
   GrubSegmentHead: {fileID: 8477126959234422730, guid: 688037e2ca20a3a4280f0d2a2397ab1f, type: 3}
   GrubSegmentBody: {fileID: 2498596566628907743, guid: 94780a81c54863a4e89d66b5e0da4b80, type: 3}
 --- !u!58 &6900436051555346455
@@ -284,9 +283,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.35331076}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.85331076
 --- !u!1 &3717595428601911885
 GameObject:
   m_ObjectHideFlags: 0
@@ -357,8 +356,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -481785659
+  m_SortingLayer: 2
   m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: 261dbaec4a9c6464e99424d0d3bb4d83, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

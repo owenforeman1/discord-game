@@ -67,9 +67,11 @@ public class Projectile : MonoBehaviour
     {
         if (collision != null)
         {
-            if(collision.tag == "Player")
+            if(collision.tag == "PlayerBody")
             {
-                collision.gameObject.GetComponent<PlayerHealth>().GetHit(DeathIcon);
+
+                GameObject Player = GameObject.FindGameObjectWithTag("Player");
+                Player.GetComponent<PlayerHealth>().GetHit(DeathIcon);
                 Destroy(gameObject);
             }
 

@@ -9,8 +9,8 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody2D body;
     public PlayerHealth playerHealth;
 
-    float horizontal;
-    float vertical;
+    // input Vectors
+    [HideInInspector] public Vector2 inputVector;
 
     public float baseMoveSpeed = 20.0f;
     public float activeMoveSpeed = 20.0f;
@@ -28,8 +28,8 @@ public class PlayerMovement : MonoBehaviour
         CalculateMoveSpeed();
 
 
-        horizontal = Input.GetAxisRaw("Horizontal");
-        vertical = Input.GetAxisRaw("Vertical");
+        float horizontal = Input.GetAxisRaw("Horizontal");
+        float vertical = Input.GetAxisRaw("Vertical");
 
         if (playerHealth.isDead)
         {
@@ -37,9 +37,11 @@ public class PlayerMovement : MonoBehaviour
             vertical = 0f;
         }
 
+        inputVector = new Vector2(horizontal, vertical).normalized;
+
         // Graphics direction
         // Determine which direction to rotate towards
-        Vector2 targetDirection = new Vector3 (horizontal, vertical);
+        Vector2 targetDirection = inputVector;
         float inputMagnitude = Mathf.Clamp01(targetDirection.magnitude);
         targetDirection.Normalize();
 
@@ -48,6 +50,7 @@ public class PlayerMovement : MonoBehaviour
         if (targetDirection != Vector2.zero )
         {
             Quaternion toRotation = Quaternion.LookRotation(Vector3.forward, targetDirection);
+            
             //transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
             transform.rotation = Quaternion.Slerp(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
         }
@@ -56,7 +59,7 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        Vector2 movementVector = new Vector2(horizontal, vertical).normalized;
+        Vector2 movementVector = inputVector;
         body.velocity = movementVector * activeMoveSpeed;
     }
 

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class GrubSegment : MonoBehaviour
@@ -28,8 +29,13 @@ public class GrubSegment : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
 
-        spriteRenderer.sortingOrder = index;
+        spriteRenderer.sortingOrder = -index;
 
+        //Head follow
+        if (isHead())
+        {
+            followDistance = 0f;
+        }
         //Head follow offset
         if (index == 1)
         {
@@ -52,17 +58,6 @@ public class GrubSegment : MonoBehaviour
         animator.Play("move");
     }
 
-    // Update is called once per frame
-    //private void Update()
-    //{
-    //needMove = OutOfRange();
-    //}
-
-    private void Update()
-    {
-        //needMove = OutOfRange();
-    }
-
 
     void FixedUpdate()
     {
@@ -75,6 +70,9 @@ public class GrubSegment : MonoBehaviour
         else
         {
             rb.velocity = Vector3.zero;
+
+            // Rotate Anyway
+            rotate();
         }
 
 
@@ -85,15 +83,55 @@ public class GrubSegment : MonoBehaviour
     private void MoveToNextSegment()
     {
         float speed = playerMovement.activeMoveSpeed;
-        //float speed = 25f;
 
+        float currentDistance = Vector2.Distance(followedSegment.position, transform.position);
         Vector2 Dir = (followedSegment.position - transform.position).normalized;
-        transform.position += (Vector3)(Dir * speed * Time.fixedDeltaTime);
-        //rb.velocity = Dir * speed;
 
+        if (currentDistance - (speed * Time.fixedDeltaTime) > followDistance)
+        {
+            transform.position += (Vector3)(Dir * speed * Time.fixedDeltaTime);
+        }
+        else
+        {
+            // Solve for correct postion 
+
+            transform.position += (Vector3)(Dir * (currentDistance - followDistance));
+        }
+
+        rotate();
+
+
+    }
+
+    private void rotate()
+    {
+        Vector2 Dir;
+        
+        if (isHead())
+        {
+            Dir = playerMovement.inputVector;
+        }
+        else
+        {
+            Dir = (followedSegment.position - transform.position).normalized;
+        }
 
         Quaternion toRotation = Quaternion.LookRotation(Vector3.forward, Dir);
-        transform.rotation = toRotation;
+
+
+        if (isHead())
+        {
+            if (Dir != Vector2.zero)
+            {
+                transform.rotation = Quaternion.Lerp(transform.rotation, toRotation, .5f);
+            }
+        }
+        else
+        {
+            transform.rotation = toRotation;
+        }
+        
+
     }
 
     private bool OutOfRange()
@@ -103,5 +141,10 @@ public class GrubSegment : MonoBehaviour
             return true;
         }
         return false;
+    }
+
+    private bool isHead()
+    {
+        return index == 0;
     }
 }

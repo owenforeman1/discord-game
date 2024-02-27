@@ -19,9 +19,10 @@ public class BookObstacle : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("PlayerBody"))
         {
-            collision.gameObject.GetComponent<PlayerHealth>().GetHit(DeathIcon);
+            GameObject Player = GameObject.FindGameObjectWithTag("Player");
+            Player.GetComponent<PlayerHealth>().GetHit(DeathIcon);
         }
     }
 

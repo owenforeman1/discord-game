@@ -6,6 +6,7 @@ TagManager:
   tags:
   - SoundEffects
   - Wall
+  - PlayerBody
   layers:
   - Default
   - TransparentFX
@@ -45,4 +46,7 @@ TagManager:
     locked: 0
   - name: Grub
     uniqueID: 1809644467
+    locked: 0
+  - name: PlayerEffects
+    uniqueID: 3813181637
     locked: 0

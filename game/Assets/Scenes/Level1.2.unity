@@ -38704,14 +38704,6 @@ PrefabInstance:
       propertyPath: DeathHandler
       value: 
       objectReference: {fileID: 973618580}
-    - target: {fileID: 6900436051555346455, guid: 33540ffd5595e8040bf3014fcba1dedb, type: 3}
-      propertyPath: m_Radius
-      value: 0.85331076
-      objectReference: {fileID: 0}
-    - target: {fileID: 6900436051555346455, guid: 33540ffd5595e8040bf3014fcba1dedb, type: 3}
-      propertyPath: m_Offset.y
-      value: -0.35331076
-      objectReference: {fileID: 0}
     - target: {fileID: 7610113955664738905, guid: 33540ffd5595e8040bf3014fcba1dedb, type: 3}
       propertyPath: numSegments
       value: 5
