@@ -17,8 +17,6 @@ public class GrubSegment : MonoBehaviour
 
     public Animator animator;
 
-    private Rigidbody2D rb;
-
     private bool needMove;
 
     public SpriteRenderer spriteRenderer;
@@ -27,7 +25,6 @@ public class GrubSegment : MonoBehaviour
 
     private void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
 
         spriteRenderer.sortingOrder = -index;
 
@@ -69,7 +66,6 @@ public class GrubSegment : MonoBehaviour
         }
         else
         {
-            rb.velocity = Vector3.zero;
 
             // Rotate Anyway
             rotate();
