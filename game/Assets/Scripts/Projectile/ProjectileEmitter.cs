@@ -26,7 +26,7 @@ public class ProjectileEmitter : MonoBehaviour
 
             if (emitTimer <= 0)
             {
-                Shoot();
+                Fire();
 
                 emitTimer = Random.Range(EmitTimeMinMax.x, EmitTimeMinMax.y);
             }
@@ -34,7 +34,7 @@ public class ProjectileEmitter : MonoBehaviour
 
     }
 
-    private void Shoot()
+    public void Fire()
     {
         Instantiate(possibleprojectiles[Random.Range(0, possibleprojectiles.Count)], transform.position, Quaternion.identity);
     }

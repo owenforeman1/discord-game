@@ -49,7 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 3285838584004509055}
   followPlayer: 0
-  speed: 11
+  speed: 13
   DeathIcon: {fileID: -436463389, guid: 79828dd9a62aa6b45a1387cbec8c2323, type: 3}
   lifeTime: 30
 --- !u!50 &3285838584004509055
@@ -65,8 +65,8 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0.02
-  m_AngularDrag: 0.75
+  m_LinearDrag: 0
+  m_AngularDrag: 0
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:

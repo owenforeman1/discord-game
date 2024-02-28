@@ -35,7 +35,7 @@ public class MiniGunEmitter : MonoBehaviour
     }
 
 
-    IEnumerator Fire()
+    public IEnumerator Fire()
     {
         float fireTimer = 0f;
 

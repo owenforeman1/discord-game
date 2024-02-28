@@ -99,7 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 6088163480508969626}
   followPlayer: 0
-  speed: 12
+  speed: 15
   DeathIcon: {fileID: 0}
   lifeTime: 30
 --- !u!50 &6088163480508969626

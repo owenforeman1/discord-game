@@ -88,10 +88,15 @@ public class FloorGame : MonoBehaviour
         yield return FadeTilemapColor(tilemap, defaultColor, indicatorColor, timeToChangeColor);
         // slam the kill color
         tilemap.color = killColor;
+        // Set floor to active
+        FloorGameSection FloorGameSection = floor.GetComponent<FloorGameSection>();
+        FloorGameSection.floorIsLava = true;
 
         // Hold for time its active
         yield return new WaitForSeconds(activeFloorTime);
-        
+        // Turn floor off
+        FloorGameSection.floorIsLava = false;
+
         // Fade out
         yield return FadeTilemapColor(tilemap, killColor, defaultColor, fadeOutTime);
 

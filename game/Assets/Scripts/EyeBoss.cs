@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Xml;
-using Unity.VisualScripting;
+using System.Linq;
 using UnityEngine;
 
 public class EyeBoss : MonoBehaviour
@@ -10,6 +9,10 @@ public class EyeBoss : MonoBehaviour
     public MiniGunEmitter miniGunEmitter;
 
     public Sprite deathRecapIcon;
+
+    [Header("TimeConfig")]
+    public float attackCD;
+    public float singlewaveCD = .8f;
 
     enum BossAttack {SingleWave, MiniGun, Explosive}
 
@@ -24,7 +27,7 @@ public class EyeBoss : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //StartCoroutine(Loop());
+        StartCoroutine(Loop());
     }
 
     // Update is called once per frame
@@ -39,13 +42,49 @@ public class EyeBoss : MonoBehaviour
         // Each attack has a weight of being picked
         // Attacks used recently are less likely to occur
 
-        
+
         while (true)
         {
+            // Pick Attack
             BossAttack ChosenAttack = ChooseAttack();
-
-            yield return null;
+            // Use attack
+            yield return DoAttack(ChosenAttack);
+            // Wait
+            yield return new WaitForSeconds(attackCD);
         }
+    }
+
+    IEnumerator DoAttack(BossAttack ChosenAttack)
+    {
+        switch (ChosenAttack)
+        {
+            case BossAttack.SingleWave:
+                yield return SingleWaveAttack();
+                break;
+            case BossAttack.MiniGun:
+                yield return MiniGunAttack();
+                break;
+            case BossAttack.Explosive:
+                // code block
+                break;
+            default:
+                print("Not a valid attack");
+                break;
+        }
+    }
+
+    IEnumerator SingleWaveAttack()
+    {
+        basicEmitter.Fire();
+        yield return new WaitForSeconds(singlewaveCD);
+        basicEmitter.Fire();
+        yield return new WaitForSeconds(singlewaveCD);
+        basicEmitter.Fire();
+    }
+
+    IEnumerator MiniGunAttack()
+    {
+        yield return miniGunEmitter.Fire();
     }
 
     private BossAttack ChooseAttack()
@@ -66,7 +105,7 @@ public class EyeBoss : MonoBehaviour
         {
             // do something with entry.Value or entry.Key
             sum += attack.Value;
-            if (sum <= chosenValue)
+            if (chosenValue < sum)
             {
                 nextAttack = attack.Key;
                 break;
@@ -75,9 +114,9 @@ public class EyeBoss : MonoBehaviour
 
         BossAttacks[nextAttack] = 0;
 
-        foreach (KeyValuePair<BossAttack, int> attack in BossAttacks)
+        foreach (KeyValuePair<BossAttack, int> attack in BossAttacks.ToList())
         {
-            BossAttacks[attack.Key] += 1;
+            BossAttacks[attack.Key] = attack.Value + 1;
         }
 
 
@@ -87,9 +126,10 @@ public class EyeBoss : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.CompareTag("Player"))
+        if (collider.CompareTag("PlayerBody"))
         {
-            collider.gameObject.GetComponent<PlayerHealth>().GetHit(deathRecapIcon);
+            GameObject Player = GameObject.FindGameObjectWithTag("Player");
+            Player.GetComponent<PlayerHealth>().GetHit(deathRecapIcon);
         }
     }
 }

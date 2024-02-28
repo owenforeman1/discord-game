@@ -47,8 +47,10 @@ public class WaveProjectile : MonoBehaviour
         float radians = ((180 / MathF.PI) ) * Time.time;
         foreach (Transform child in pieces)
         {
-            
-            child.localPosition = new Vector3(child.localPosition.x, CalcYPos(radians, i), 0f);
+            if (child != null)
+            {
+                child.localPosition = new Vector3(child.localPosition.x, CalcYPos(radians, i), 0f);
+            }
 
             i++;
         }
