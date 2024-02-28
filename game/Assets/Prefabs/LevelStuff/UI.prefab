@@ -668,10 +668,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 6887306613903801856}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -33.007, y: -26.236}
+  m_SizeDelta: {x: 126, y: 42}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4648556927901195486
 CanvasRenderer:
@@ -703,15 +703,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: 00:00.00
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 46eda3fa49efccd429fd3bbeef579ab1, type: 2}
-  m_sharedMaterial: {fileID: 2756524634255325119, guid: 46eda3fa49efccd429fd3bbeef579ab1, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 64b5d649e330e3b4090b453adc68b217, type: 2}
+  m_sharedMaterial: {fileID: -4584820018880318737, guid: 64b5d649e330e3b4090b453adc68b217, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 2449447779
-  m_fontColor: {r: 0.38823533, g: 0.60784316, b: 1, a: 0.5686275}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -728,10 +728,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 28.9
-  m_fontSizeBase: 38.7
+  m_fontSize: 25
+  m_fontSizeBase: 25
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 1
   m_fontSizeMax: 100
   m_fontStyle: 0
@@ -1113,8 +1113,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -101.7, y: -39.4}
-  m_SizeDelta: {x: 187.5399, y: 66.004}
+  m_AnchoredPosition: {x: -93.77002, y: -39.4}
+  m_SizeDelta: {x: 138.4279, y: 41.7755}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7544581005341377741
 CanvasRenderer:
@@ -1137,7 +1137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.77254903}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.34901962}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

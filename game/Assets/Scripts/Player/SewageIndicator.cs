@@ -33,7 +33,7 @@ public class SewageIndicator : MonoBehaviour
 
         foreach (GameObject obj in bodyObjects)
         {
-            SpriteRenderers.Add(obj.GetComponent<SpriteRenderer>());
+            SpriteRenderers.Add(obj.transform.GetChild(0).GetChild(0).gameObject.GetComponent<SpriteRenderer>());
         }
     }
 }

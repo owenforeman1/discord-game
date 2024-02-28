@@ -189,6 +189,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHealth: {fileID: 5099453745521656117}
+  inputVector: {x: 0, y: 0}
   baseMoveSpeed: 20
   activeMoveSpeed: 20
   rotationSpeed: 5
@@ -248,7 +249,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49747445e61e5c4439cf49b5a7803512, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numSegments: 7
+  numSegments: 5
   GrubSegmentHead: {fileID: 8477126959234422730, guid: 688037e2ca20a3a4280f0d2a2397ab1f, type: 3}
   GrubSegmentBody: {fileID: 2498596566628907743, guid: 94780a81c54863a4e89d66b5e0da4b80, type: 3}
 --- !u!58 &6900436051555346455
@@ -266,7 +267,7 @@ CircleCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2

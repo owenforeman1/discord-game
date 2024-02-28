@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Sewage : MonoBehaviour
 {
-    private bool playerInside;
-
     public float timeToKill = 1.5f;
     public float slowPercent = .8f;
 
@@ -18,6 +16,8 @@ public class Sewage : MonoBehaviour
     private SewageIndicator SewageIndicator;
     private PlayerMovement playerMovement;
 
+    private int playerpartsInside = 0;
+
     private void Start()
     {
         Player = GameObject.FindGameObjectWithTag("Player");
@@ -29,9 +29,9 @@ public class Sewage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (playerInside)
+        if (playerIsInside())
         {
-            insideTimer += Time.deltaTime;
+            insideTimer += Time.deltaTime * Mathf.Clamp(playerpartsInside, 0, 3)/3;
         }
         else
         {
@@ -47,15 +47,25 @@ public class Sewage : MonoBehaviour
        
     }
 
+    private bool playerIsInside()
+    {
+        return playerpartsInside > 0;
+    }
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision != null)
         {
-            if (collision.tag == "Player")
+            if (collision.tag == "PlayerBody")
             {
-                playerInside = true;
-                playerMovement.ChangeModifier(true, slowPercent);
+                if (!playerIsInside())
+                {
+                    playerMovement.ChangeModifier(true, slowPercent);
+                }
+
+                playerpartsInside += 1;
+                
             }
         }
     }
@@ -63,10 +73,15 @@ public class Sewage : MonoBehaviour
     {
         if (collision != null)
         {
-            if (collision.tag == "Player")
+            if (collision.tag == "PlayerBody")
             {
-                playerInside = false;
-                playerMovement.ChangeModifier(false, slowPercent);
+                playerpartsInside -= 1;
+
+                if (!playerIsInside())
+                {
+                    playerMovement.ChangeModifier(false, slowPercent);
+                }
+                
             }
         }
     }

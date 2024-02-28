@@ -50,3 +50,6 @@ TagManager:
   - name: PlayerEffects
     uniqueID: 3813181637
     locked: 0
+  - name: VeryTopLayer
+    uniqueID: 2251959701
+    locked: 0
