@@ -6,6 +6,7 @@ using UnityEngine;
 public class EyeBoss : MonoBehaviour
 {
     public ProjectileEmitter basicEmitter;
+    public ProjectileEmitter bombEmitter;
     public MiniGunEmitter miniGunEmitter;
 
     public Sprite deathRecapIcon;
@@ -65,7 +66,7 @@ public class EyeBoss : MonoBehaviour
                 yield return MiniGunAttack();
                 break;
             case BossAttack.Explosive:
-                // code block
+                yield return ExplosiveAttack();
                 break;
             default:
                 print("Not a valid attack");
@@ -85,6 +86,13 @@ public class EyeBoss : MonoBehaviour
     IEnumerator MiniGunAttack()
     {
         yield return miniGunEmitter.Fire();
+    }
+
+    IEnumerator ExplosiveAttack()
+    {
+        bombEmitter.Fire();
+
+        yield return new WaitForSeconds(3f);
     }
 
     private BossAttack ChooseAttack()
