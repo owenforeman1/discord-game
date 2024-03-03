@@ -10,6 +10,7 @@ public class BossFightManager : MonoBehaviour
 
     public Vector2 xRange;
     public Vector2 yRange;
+    public float minDistanceFromCenter;
 
     public string EndScreenName = "EndScreen";
     // Start is called before the first frame update
@@ -38,18 +39,21 @@ public class BossFightManager : MonoBehaviour
     private Vector2 PickLocation()
     {
         float randomX = Random.Range(xRange.x, xRange.y);
-        if(Random.Range(0, 2) == 0)
-        {
-            randomX = -randomX;
-        }
+
 
         float randomY = Random.Range(yRange.x, yRange.y);
-        if (Random.Range(0, 2) == 0)
+
+        Vector2 Location = new Vector2(randomX, randomY);
+
+        if ((Vector2.Distance(Location, Vector2.zero) > minDistanceFromCenter))
         {
-            randomY = -randomY;
+            return Location;
+        }
+        else
+        {
+            return PickLocation();
         }
 
-        return new Vector2(randomX, randomY);
 
     }
 }
