@@ -10,7 +10,11 @@ public class ProjectileEmitter : MonoBehaviour
 
     public List<GameObject> possibleprojectiles = new List<GameObject>();
 
+    public Transform emitZone;
+
     public bool autonomous = true;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +40,14 @@ public class ProjectileEmitter : MonoBehaviour
 
     public void Fire()
     {
-        Instantiate(possibleprojectiles[Random.Range(0, possibleprojectiles.Count)], transform.position, Quaternion.identity);
+        if(emitZone != null)
+        {
+            Instantiate(possibleprojectiles[Random.Range(0, possibleprojectiles.Count)], emitZone.position, Quaternion.identity);
+        }
+        else
+        {
+            Instantiate(possibleprojectiles[Random.Range(0, possibleprojectiles.Count)], transform.position, Quaternion.identity);
+        }
+       
     }
 }

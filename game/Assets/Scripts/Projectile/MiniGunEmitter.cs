@@ -14,6 +14,8 @@ public class MiniGunEmitter : MonoBehaviour
 
     public string soundName;
 
+    public Transform emitZone;
+
     public bool autonomous = true;
 
     // Start is called before the first frame update
@@ -43,10 +45,17 @@ public class MiniGunEmitter : MonoBehaviour
         while (fireTimer < fireTime)
         {
             float time1 = Time.time;
-            
-            
-            GameObject newProjectile = Instantiate(projectile, transform.position, Quaternion.identity);
 
+            GameObject newProjectile;
+            if (emitZone != null)
+            {
+                newProjectile = Instantiate(projectile, emitZone.position, Quaternion.identity);
+            }
+            else
+            {
+                newProjectile = Instantiate(projectile, transform.position, Quaternion.identity);
+            }
+            
             float randomAngle = Random.Range(-angle/2, angle/2);
             newProjectile.GetComponent<Projectile>().SetPath(randomAngle);
 

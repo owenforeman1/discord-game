@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
+    public bool GodMode = false;
     
     public int health;
     public ProtectionPrayer ProtectionPrayer;
@@ -20,6 +21,11 @@ public class PlayerHealth : MonoBehaviour
 
     public void GetHit(Sprite KillerIMG)
     {
+        if (GodMode)
+        {
+            return;
+        }
+
         if (Shield.isActive)
         {
             return;
