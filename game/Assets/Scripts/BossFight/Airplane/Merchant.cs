@@ -16,6 +16,11 @@ public class Merchant : MonoBehaviour
         Animator.SetBool("wantEnvelope", true);
     }
 
+    public void ReadyForNextEnvelop()
+    {
+        Animator.SetBool("wantEnvelope", true);
+    }
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

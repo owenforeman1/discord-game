@@ -17,14 +17,35 @@ public class EyeBoss : MonoBehaviour
 
     public int flashes = 3;
 
-    private void Start()
+    public BossFightManager BossFightManager;
+
+    public float invincTime = 1f;
+    private bool isImmune = false;
+
+    private void Update()
     {
-        StartCoroutine(OnTakeHit());
+        if (hp <= 0)
+        {
+            BossFightManager.FightWon();
+        }
     }
 
     public void TakeHit()
     {
+        if (isImmune) { return; }
+
+        hp -= 1;
+
+        StartCoroutine(SetImmuneTimer());
         StartCoroutine(OnTakeHit());
+        BossFightManager.NewAirplaneSet();
+    }
+
+    IEnumerator SetImmuneTimer()
+    {
+        isImmune = true;
+        yield return new WaitForSeconds(invincTime);
+        isImmune = false;
     }
 
     IEnumerator OnTakeHit()
