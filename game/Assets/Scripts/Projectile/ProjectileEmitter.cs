@@ -14,6 +14,8 @@ public class ProjectileEmitter : MonoBehaviour
 
     public bool autonomous = true;
 
+    public string soundName = "";
+
 
     // Start is called before the first frame update
     void Start()
@@ -47,6 +49,11 @@ public class ProjectileEmitter : MonoBehaviour
         else
         {
             Instantiate(possibleprojectiles[Random.Range(0, possibleprojectiles.Count)], transform.position, Quaternion.identity);
+        }
+
+        if (soundName != "")
+        {
+            FindAnyObjectByType<SoundManager>().Play(soundName);
         }
        
     }

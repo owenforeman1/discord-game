@@ -50,7 +50,7 @@ MonoBehaviour:
   rb: {fileID: 3285838584004509055}
   followPlayer: 0
   speed: 13
-  DeathIcon: {fileID: -436463389, guid: 79828dd9a62aa6b45a1387cbec8c2323, type: 3}
+  DeathIcon: {fileID: 654173155, guid: 0ddc8fb4a0da9f64fb224e41459ad013, type: 3}
   lifeTime: 30
 --- !u!50 &3285838584004509055
 Rigidbody2D:

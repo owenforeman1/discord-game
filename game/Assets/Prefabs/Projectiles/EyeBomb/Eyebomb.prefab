@@ -52,7 +52,7 @@ MonoBehaviour:
   rb: {fileID: 8729626412777469072}
   followPlayer: 0
   speed: 10
-  DeathIcon: {fileID: -436463389, guid: 79828dd9a62aa6b45a1387cbec8c2323, type: 3}
+  DeathIcon: {fileID: 821901221, guid: 0ddc8fb4a0da9f64fb224e41459ad013, type: 3}
   lifeTime: 10
 --- !u!50 &8729626412777469072
 Rigidbody2D:
@@ -109,6 +109,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeToExplode: 3
+  soundName: eyeBomb
   emitter: {fileID: 3282511411957933393}
 --- !u!58 &3839847258524572722
 CircleCollider2D:
