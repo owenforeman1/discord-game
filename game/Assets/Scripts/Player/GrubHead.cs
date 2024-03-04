@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GrubHead : MonoBehaviour
 {
-    public int numSegments = 3;
+    public int numSegments = 5;
     public GameObject GrubSegmentHead;
     public GameObject GrubSegmentBody;
 
@@ -12,6 +12,12 @@ public class GrubHead : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Load how many num segments
+        PermaObject PermaObject = GameObject.FindGameObjectWithTag("PermaObject").GetComponent<PermaObject>();
+        numSegments += PermaObject.wins * 2;
+
+
+
         PlayerMovement PlayerMovement = GetComponent<PlayerMovement>();
         
         Transform lastSegment = transform;

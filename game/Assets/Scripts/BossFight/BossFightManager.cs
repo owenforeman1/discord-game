@@ -22,6 +22,9 @@ public class BossFightManager : MonoBehaviour
 
     public void FightWon()
     {
+        PermaObject PermaObject = GameObject.FindGameObjectWithTag("PermaObject").GetComponent<PermaObject>();
+        PermaObject.wins += 1;
+
         SceneManager.LoadScene(EndScreenName, LoadSceneMode.Single);
     }
 

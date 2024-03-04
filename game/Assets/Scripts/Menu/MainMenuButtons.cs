@@ -7,6 +7,7 @@ public class MainMenuButtons : MonoBehaviour
 {
 
     public GameObject LevelSelect;
+    public GameObject PlayerDataDisplay;
 
     public SoundManager soundManager;
 
@@ -15,6 +16,7 @@ public class MainMenuButtons : MonoBehaviour
     private void Start()
     {
         LevelSelect.SetActive(false);
+        PlayerDataDisplay.SetActive(false);
     }
 
 
@@ -25,6 +27,22 @@ public class MainMenuButtons : MonoBehaviour
         LevelSelect.SetActive(!LevelSelect.activeSelf);
 
         if (LevelSelect.activeSelf )
+        {
+            HideButtons();
+        }
+        else
+        {
+            ShowButtons();
+        }
+    }
+
+    public void ToggleDisplayPlayerData()
+    {
+        soundManager.Play("click");
+
+        PlayerDataDisplay.SetActive(!PlayerDataDisplay.activeSelf);
+
+        if (PlayerDataDisplay.activeSelf)
         {
             HideButtons();
         }

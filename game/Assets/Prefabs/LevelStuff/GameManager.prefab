@@ -74,5 +74,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerIsDead: 0
   pause: {fileID: 3238814990530839776}
-  playerHealth: {fileID: 0}
   DeathScreen: {fileID: 0}
