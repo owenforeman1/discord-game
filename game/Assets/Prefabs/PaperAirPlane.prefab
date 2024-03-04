@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4657485866366958009}
   - component: {fileID: 6408814786694123206}
   - component: {fileID: 1004008106803838392}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PaperAirPlane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -178,7 +178,7 @@ GameObject:
   m_Component:
   - component: {fileID: 856139672412727565}
   - component: {fileID: 2791048854065345485}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -261,7 +261,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2783247082430539624}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Graphics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
