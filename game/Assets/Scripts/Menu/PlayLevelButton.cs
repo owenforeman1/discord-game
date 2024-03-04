@@ -7,9 +7,11 @@ public class PlayLevelButton : MonoBehaviour
 {
 
     public string LevelName;
+    public SoundManager soundManager;
     
     public void PlayButtonClick()
     {
+        soundManager.Play("click");
         SceneManager.LoadScene(LevelName, LoadSceneMode.Single);
     }
 }

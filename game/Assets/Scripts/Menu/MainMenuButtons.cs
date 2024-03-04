@@ -8,6 +8,8 @@ public class MainMenuButtons : MonoBehaviour
 
     public GameObject LevelSelect;
 
+    public SoundManager soundManager;
+
     public List<GameObject> MainButtons = new List<GameObject>();
 
     private void Start()
@@ -18,6 +20,8 @@ public class MainMenuButtons : MonoBehaviour
 
     public void ToggleLevelSelect()
     {
+        soundManager.Play("click");
+
         LevelSelect.SetActive(!LevelSelect.activeSelf);
 
         if (LevelSelect.activeSelf )

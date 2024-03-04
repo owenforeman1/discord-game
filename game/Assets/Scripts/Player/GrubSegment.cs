@@ -21,6 +21,8 @@ public class GrubSegment : MonoBehaviour
 
     public SpriteRenderer spriteRenderer;
 
+    public bool kingHead = false;
+
     // Moves segment if out of range
 
     private void Start()
@@ -29,7 +31,7 @@ public class GrubSegment : MonoBehaviour
         spriteRenderer.sortingOrder = -index;
 
         //Head follow
-        if (isHead())
+        if (isHead() && !kingHead)
         {
             followDistance = 0f;
         }
@@ -103,7 +105,7 @@ public class GrubSegment : MonoBehaviour
     {
         Vector2 Dir;
         
-        if (isHead())
+        if (isHead() && !kingHead)
         {
             Dir = playerMovement.inputVector;
         }
@@ -115,7 +117,7 @@ public class GrubSegment : MonoBehaviour
         Quaternion toRotation = Quaternion.LookRotation(Vector3.forward, Dir);
 
 
-        if (isHead())
+        if (isHead() && !kingHead)
         {
             if (Dir != Vector2.zero)
             {

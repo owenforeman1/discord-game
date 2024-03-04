@@ -24,6 +24,10 @@ public class PauseMenu : MonoBehaviour
 
     private void TogglePauseMenu()
     {
+        SoundManager SoundManager = FindObjectOfType<SoundManager>();
+        SoundManager.Play("click");
+
+
         if (PauseMenuContainer.activeSelf)
         {
             PauseMenuContainer.SetActive(false);
@@ -40,10 +44,14 @@ public class PauseMenu : MonoBehaviour
     public void ExitToMainMenu()
     {
         pause.UnpauseGame();
+        SoundManager SoundManager = FindObjectOfType<SoundManager>();
+        SoundManager.Play("click");
         SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
     }
     public void QuitGame()
     {
+        SoundManager SoundManager = FindObjectOfType<SoundManager>();
+        SoundManager.Play("click");
         Application.Quit();
     }
 }
