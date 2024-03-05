@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class BossFightManager : MonoBehaviour
 {
+    [SerializeField] ExitPortal ExitPortal;
+
     public GameObject Envelope;
     public GameObject Merchant;
 
@@ -22,8 +24,10 @@ public class BossFightManager : MonoBehaviour
 
     public void FightWon()
     {
-        PermaObject PermaObject = GameObject.FindGameObjectWithTag("PermaObject").GetComponent<PermaObject>();
-        PermaObject.wins += 1;
+        PlayerSaveData PlayerSaveData = GameObject.FindGameObjectWithTag("PermaObject").GetComponent<PlayerSaveData>();
+        PlayerSaveData.wins += 1;
+
+        ExitPortal.WriteTimeToSceneBuffer();
 
         SceneManager.LoadScene(EndScreenName, LoadSceneMode.Single);
     }

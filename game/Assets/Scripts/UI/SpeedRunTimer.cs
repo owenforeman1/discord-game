@@ -21,19 +21,28 @@ public class SpeedRunTimer : MonoBehaviour
     void Update()
     {
         float currentTime = Time.time - StartTime;
-        int minutes = (int)currentTime / 60;
-        string seconds = ((int)(currentTime - (float)minutes * 60)).ToString();
-        if(seconds.Length == 1)
+
+        text.text = ConvertTimeToDisplayTimer(currentTime);
+    }
+
+    public float GetFinishTime()
+    {
+        return Time.time - StartTime;
+    }
+
+    private string ConvertTimeToDisplayTimer(float time)
+    {
+        int minutes = (int)time / 60;
+        string seconds = ((int)(time - (float)minutes * 60)).ToString();
+        if (seconds.Length == 1)
         {
             seconds = "0" + seconds;
         }
 
 
-        string microseconds = currentTime.ToString("0.00");
+        string microseconds = time.ToString("0.00");
         microseconds = microseconds.Substring(microseconds.Length - 2);
-        //string microseconds = Math.Round((float)currentTime - (float)(minutes * 60) - (float)seconds, 2);
 
-
-        text.text = $"{minutes}:{seconds}.{microseconds}";
+        return $"{minutes}:{seconds}.{microseconds}";
     }
 }

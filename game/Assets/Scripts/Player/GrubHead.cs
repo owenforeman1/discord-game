@@ -13,8 +13,8 @@ public class GrubHead : MonoBehaviour
     void Start()
     {
         // Load how many num segments
-        PermaObject PermaObject = GameObject.FindGameObjectWithTag("PermaObject").GetComponent<PermaObject>();
-        numSegments += PermaObject.wins * 2;
+        PlayerSaveData PlayerSaveData = GameObject.FindGameObjectWithTag("PermaObject").GetComponent<PlayerSaveData>();
+        numSegments += PlayerSaveData.wins * 2;
 
 
 

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4608577041727440144}
   - component: {fileID: 2326606845885778157}
+  - component: {fileID: 2631750326023130470}
   m_Layer: 0
   m_Name: PermaObject
   m_TagString: PermaObject
@@ -45,3 +46,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wins: 0
+  levelTime1: 59999
+  levelTime2: 59999
+  levelTime3: 59999
+--- !u!114 &2631750326023130470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 980418169244354346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66ebcabbc2963a44c947aa02bf681c98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerSaveData: {fileID: 2326606845885778157}
+  runTimeBuffer: 0

@@ -16,7 +16,18 @@ public class PlayerHealth : MonoBehaviour
 
     private void Update()
     {
+        CheckGodMode();
+    }
 
+    private void CheckGodMode()
+    {
+        if (Input.GetKey(KeyCode.C) && Input.GetKey(KeyCode.H) && Input.GetKey(KeyCode.M) && Input.GetKey(KeyCode.Z))
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                GodMode = !GodMode;
+            }
+        }
     }
 
     public void GetHit(Sprite KillerIMG)

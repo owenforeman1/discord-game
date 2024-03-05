@@ -23,7 +23,16 @@ public class ExitPortal : MonoBehaviour
 
     private void OnGameWin()
     {
+        WriteTimeToSceneBuffer();
         SceneManager.LoadScene(EndScreenName, LoadSceneMode.Single);
+    }
+
+    public void WriteTimeToSceneBuffer()
+    {
+        // Write Time to buffer
+        float finishTime = FindObjectOfType<SpeedRunTimer>().GetFinishTime();
+        TimeTracker timeTracker = GameObject.FindGameObjectWithTag("PermaObject").GetComponent<TimeTracker>();
+        timeTracker.OnLevelWin(finishTime, GameManager.levelIndex);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

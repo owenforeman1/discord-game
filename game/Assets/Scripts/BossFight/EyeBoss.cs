@@ -22,23 +22,40 @@ public class EyeBoss : MonoBehaviour
     public float invincTime = 1f;
     private bool isImmune = false;
 
+    public List<string> TakeDamageSoundNames = new List<string>();
+
+    private bool isDead;
+
     private void Update()
     {
-        if (hp <= 0)
+        if (hp <= 0 && !isDead)
         {
-            BossFightManager.FightWon();
+            StartCoroutine(OnBossDeath());
         }
     }
 
     public void TakeHit()
     {
+        if (isDead) { return; }
         if (isImmune) { return; }
 
         hp -= 1;
 
         StartCoroutine(SetImmuneTimer());
         StartCoroutine(OnTakeHit());
-        BossFightManager.NewAirplaneSet();
+        
+    }
+
+    IEnumerator OnBossDeath()
+    {
+        isDead = true;
+        // Freeze Player
+
+        // Play Shaking Anim
+
+        BossFightManager.FightWon();
+        yield break;
+
     }
 
     IEnumerator SetImmuneTimer()
@@ -50,12 +67,16 @@ public class EyeBoss : MonoBehaviour
 
     IEnumerator OnTakeHit()
     {
+        // Play Sound
+        FindObjectOfType<SoundManager>().Play(TakeDamageSoundNames[Random.Range(0, TakeDamageSoundNames.Count)]);
+        
         for (int i = 0; i < flashes; i++)
         {
             yield return FadeColor(EyeSprite, NormalColor, HitColor, flashTime);
             yield return FadeColor(EyeSprite, HitColor, NormalColor, flashTime);
         }
-        
+
+        BossFightManager.NewAirplaneSet();
     }
 
     IEnumerator FadeColor(SpriteRenderer sprite, Color startColor, Color endColor, float timeDuration)
