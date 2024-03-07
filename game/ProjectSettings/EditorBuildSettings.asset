@@ -14,7 +14,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/TestLevels/ConorLevel.unity
     guid: 0ca09f06a75cf7748a42063b935eed4c
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/TestLevels/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1

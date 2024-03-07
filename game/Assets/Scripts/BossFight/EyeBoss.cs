@@ -1,10 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
 public class EyeBoss : MonoBehaviour
 {
+
+    [SerializeField] Animator animator;
+    [SerializeField] string deathSoundName;
+    [SerializeField] Transform HourglassTransform;
 
     public int hp = 3;
 
@@ -24,7 +29,7 @@ public class EyeBoss : MonoBehaviour
 
     public List<string> TakeDamageSoundNames = new List<string>();
 
-    private bool isDead;
+    public bool isDead;
 
     private void Update()
     {
@@ -49,9 +54,30 @@ public class EyeBoss : MonoBehaviour
     IEnumerator OnBossDeath()
     {
         isDead = true;
-        // Freeze Player
+
+        // Freeze Boss
+        GetComponent<EyeBossMovement>().enabled = false;
+
+        //Disable Attacks
+        GetComponent<EyeBossAttacks>().enabled = false;
+        GetComponent<MiniGunEmitter>().enabled = false;
+
+        // Disable looking to player
+        GetComponent<EyeBossLookAnim>().enabled = false;
+
+        //Set boss to look upright
+        transform.rotation = Quaternion.identity;
 
         // Play Shaking Anim
+        animator.Play("death");
+        FindObjectOfType<SoundManager>().Play(deathSoundName);
+        yield return new WaitForSeconds(2f);
+
+        // Play Fade Anim
+        yield return new WaitForSeconds(64f/60f);
+
+        // Teleport hourglass
+        HourglassTransform.position = transform.position;
 
         BossFightManager.FightWon();
         yield break;

@@ -19,6 +19,8 @@ public class EyeBossMovement : MonoBehaviour
 
     private List<Vector2> possibleOffsets = new List<Vector2>();
 
+    [SerializeField] private EyeBoss EyeBoss;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -43,6 +45,8 @@ public class EyeBossMovement : MonoBehaviour
     {
         while (true)
         {
+            if (EyeBoss.isDead) { break; }
+
             yield return MoveToLocation();
 
             yield return new WaitForSeconds(waitTime);
@@ -62,6 +66,8 @@ public class EyeBossMovement : MonoBehaviour
             timer += Time.deltaTime;
             transform.position = Vector2.SmoothDamp(transform.position, nextPos, ref travelVel, .3f, 20f);
             //transform.position = new Vector3(transform.position.x, transform.position.y, 0f);
+
+            if (EyeBoss.isDead) { break; }
 
             yield return null;
         }

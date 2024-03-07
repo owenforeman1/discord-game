@@ -68,6 +68,10 @@ public class MiniGunEmitter : MonoBehaviour
 
             yield return new WaitForSeconds(Random.Range(inbetweenTime.x, inbetweenTime.y));
 
+            if (!this.enabled)
+            {
+                yield break;
+            }
 
             fireTimer += Time.time - time1;
         }

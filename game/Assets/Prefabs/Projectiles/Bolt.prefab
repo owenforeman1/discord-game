@@ -50,8 +50,9 @@ MonoBehaviour:
   rb: {fileID: 6732198251637437702}
   followPlayer: 0
   speed: 15
-  ProjectileType: 1
   DeathIcon: {fileID: 21300000, guid: cc55c8d3ffd59cc429c5b5e68ed71614, type: 3}
+  lifeTime: 10
+  smokeEffect: {fileID: 6821154514326884699, guid: d112984ee44dcd34699640b2d3aece55, type: 3}
 --- !u!50 &6732198251637437702
 Rigidbody2D:
   serializedVersion: 4

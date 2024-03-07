@@ -27,9 +27,8 @@ public class BossFightManager : MonoBehaviour
         PlayerSaveData PlayerSaveData = GameObject.FindGameObjectWithTag("PermaObject").GetComponent<PlayerSaveData>();
         PlayerSaveData.wins += 1;
 
-        ExitPortal.WriteTimeToSceneBuffer();
-
-        SceneManager.LoadScene(EndScreenName, LoadSceneMode.Single);
+        //ExitPortal.WriteTimeToSceneBuffer();
+        //SceneManager.LoadScene(EndScreenName, LoadSceneMode.Single);
     }
 
     public void NewAirplaneSet()

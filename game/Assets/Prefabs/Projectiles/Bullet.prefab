@@ -167,6 +167,8 @@ MonoBehaviour:
   followPlayer: 0
   speed: 15
   DeathIcon: {fileID: -1663004450, guid: 95f199edd13518d43b94dfb4ca715100, type: 3}
+  lifeTime: 10
+  smokeEffect: {fileID: 6821154514326884699, guid: d112984ee44dcd34699640b2d3aece55, type: 3}
 --- !u!50 &5683343888470538478
 Rigidbody2D:
   serializedVersion: 4

@@ -52,6 +52,7 @@ MonoBehaviour:
   speed: 13
   DeathIcon: {fileID: 654173155, guid: 0ddc8fb4a0da9f64fb224e41459ad013, type: 3}
   lifeTime: 30
+  smokeEffect: {fileID: 6821154514326884699, guid: d112984ee44dcd34699640b2d3aece55, type: 3}
 --- !u!50 &3285838584004509055
 Rigidbody2D:
   serializedVersion: 4

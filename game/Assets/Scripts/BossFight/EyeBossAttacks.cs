@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EyeBossAttacks : MonoBehaviour
@@ -15,6 +16,7 @@ public class EyeBossAttacks : MonoBehaviour
     public float attackCD;
     public float singlewaveCD = .8f;
 
+    [SerializeField] private EyeBoss EyeBoss;
     enum BossAttack {SingleWave, MiniGun, Explosive}
 
     // Stores attack and weighting
@@ -36,10 +38,12 @@ public class EyeBossAttacks : MonoBehaviour
         // The Boss rotates bewteen the attacks randomly choosing the next one
         // Each attack has a weight of being picked
         // Attacks used recently are less likely to occur
-
+        yield return new WaitForSeconds(attackCD);
 
         while (true)
         {
+            if (EyeBoss.isDead){break;}
+            
             // Pick Attack
             BossAttack ChosenAttack = ChooseAttack();
             // Use attack
@@ -72,8 +76,10 @@ public class EyeBossAttacks : MonoBehaviour
     {
         basicEmitter.Fire();
         yield return new WaitForSeconds(singlewaveCD);
+        if (EyeBoss.isDead) { yield break; }
         basicEmitter.Fire();
         yield return new WaitForSeconds(singlewaveCD);
+        if (EyeBoss.isDead) { yield break; }
         basicEmitter.Fire();
     }
 

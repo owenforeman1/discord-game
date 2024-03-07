@@ -19,6 +19,8 @@ public class Projectile : MonoBehaviour
 
     public float lifeTime = 10f;
 
+    [SerializeField] GameObject smokeEffect;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -78,8 +80,29 @@ public class Projectile : MonoBehaviour
             if (collision.tag == "Wall")
             {
                 //GameObject.FindAnyObjectByType<SoundManager>().Play("hitsound");
+                PlaySmokeEffect(collision);
                 Destroy(gameObject);
             }
         }
+    }
+
+    private void PlaySmokeEffect(Collider2D collision)
+    {
+        if(smokeEffect != null)
+        {
+
+            // Get the closest point on the trigger collider to the projectile position
+            Vector2 closestPoint = collision.ClosestPoint(transform.position);
+
+            // Calculate the normal vector by subtracting the projectile position from the closest point
+            Vector2 normalVector = (closestPoint - (Vector2)transform.position).normalized;
+
+            GameObject newSmokeEffect = Instantiate(smokeEffect, closestPoint, Quaternion.identity);
+            Quaternion toRotation = Quaternion.LookRotation(Vector3.forward, normalVector);
+            newSmokeEffect.transform.rotation = toRotation;
+
+
+        }
+
     }
 }

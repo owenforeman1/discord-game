@@ -9,6 +9,7 @@ public class PlayerSaveData : MonoBehaviour
     public float levelTime1 = 59999f;
     public float levelTime2 = 59999f;
     public float levelTime3 = 59999f;
+    public int levelsCompleted = 0;
 
 
     void Awake()
@@ -33,6 +34,7 @@ public class PlayerSaveData : MonoBehaviour
         levelTime1 = PlayerPrefs.GetFloat("levelTime1");
         levelTime2 = PlayerPrefs.GetFloat("levelTime2");
         levelTime3 = PlayerPrefs.GetFloat("levelTime3");
+        levelsCompleted = PlayerPrefs.GetInt("levelsCompleted");
 
     }
 
@@ -54,6 +56,10 @@ public class PlayerSaveData : MonoBehaviour
         {
             PlayerPrefs.SetFloat("levelTime3", 59999f);
         }
+        if (!PlayerPrefs.HasKey("levelsCompleted"))
+        {
+            PlayerPrefs.SetInt("levelsCompleted", 0);
+        }
     }
 
     public void SaveGameData()
@@ -62,6 +68,7 @@ public class PlayerSaveData : MonoBehaviour
         PlayerPrefs.SetFloat("levelTime1", levelTime1);
         PlayerPrefs.SetFloat("levelTime2", levelTime2);
         PlayerPrefs.SetFloat("levelTime3", levelTime3);
+        PlayerPrefs.SetInt("levelsCompleted", levelsCompleted);
     }
 
     void OnApplicationQuit()
