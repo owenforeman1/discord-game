@@ -136,8 +136,12 @@ public class EyeBossAttacks : MonoBehaviour
     {
         if (collider.CompareTag("PlayerBody"))
         {
-            GameObject Player = GameObject.FindGameObjectWithTag("Player");
-            Player.GetComponent<PlayerHealth>().GetHit(deathRecapIcon);
+            if (!EyeBoss.isDead)
+            {
+                GameObject Player = GameObject.FindGameObjectWithTag("Player");
+                Player.GetComponent<PlayerHealth>().GetHit(deathRecapIcon);
+            }
+
         }
     }
 }
