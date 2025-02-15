@@ -69,6 +69,22 @@ PrefabInstance:
       value: Head
       objectReference: {fileID: 0}
     - target: {fileID: 8736919724997837960, guid: 94780a81c54863a4e89d66b5e0da4b80, type: 3}
+      propertyPath: m_Size.x
+      value: 1.8284225
+      objectReference: {fileID: 0}
+    - target: {fileID: 8736919724997837960, guid: 94780a81c54863a4e89d66b5e0da4b80, type: 3}
+      propertyPath: m_Size.y
+      value: 0.7443612
+      objectReference: {fileID: 0}
+    - target: {fileID: 8736919724997837960, guid: 94780a81c54863a4e89d66b5e0da4b80, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.000000014181282
+      objectReference: {fileID: 0}
+    - target: {fileID: 8736919724997837960, guid: 94780a81c54863a4e89d66b5e0da4b80, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.11896123
+      objectReference: {fileID: 0}
+    - target: {fileID: 8736919724997837960, guid: 94780a81c54863a4e89d66b5e0da4b80, type: 3}
       propertyPath: m_ExcludeLayers.m_Bits
       value: 384
       objectReference: {fileID: 0}

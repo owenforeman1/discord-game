@@ -108,6 +108,7 @@ MonoBehaviour:
   index: 0
   animator: {fileID: 1263699965368492003}
   spriteRenderer: {fileID: 6508354655695448133}
+  kingHead: 0
 --- !u!70 &8736919724997837960
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -140,8 +141,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1.9, y: 0.7}
+  m_Offset: {x: -0.0000000037563765, y: -0.031510774}
+  m_Size: {x: 1.7814357, y: 0.63067514}
   m_Direction: 1
 --- !u!50 &5861536351338662611
 Rigidbody2D:
